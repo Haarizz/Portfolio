@@ -1,0 +1,13 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# original messy-named resume (clean copies live inside each design folder)
+HarikrishnanTNairResume (2).pdf
+
+# local scratch
+_chk*.js
+node_modules/
+.vercel

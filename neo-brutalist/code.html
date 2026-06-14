@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Neo-Brutalist Portfolio Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&amp;family=Noto+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f2f20d",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#222210",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "sans": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    borderWidth: {
+                        '3': '3px',
+                        '4': '4px',
+                    },
+                    boxShadow: {
+                        'brutal': '4px 4px 0px 0px rgba(0,0,0,1)',
+                        'brutal-lg': '8px 8px 0px 0px rgba(0,0,0,1)',
+                        'brutal-hover': '2px 2px 0px 0px rgba(0,0,0,1)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            cursor: crosshair;
+        }
+        .neo-border {
+            border: 3px solid #000;
+        }
+        .neo-shadow {
+            box-shadow: 6px 6px 0px 0px #000;
+        }
+        .sticker {
+            transition: transform 0.2s ease;
+        }
+        .sticker:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-black dark:text-white transition-colors duration-200">
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-background-light dark:bg-background-dark border-b-4 border-black px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-primary border-3 border-black p-1 neo-shadow">
+<span class="material-symbols-outlined text-black font-bold">bolt</span>
+</div>
+<h1 class="text-2xl font-black tracking-tighter uppercase dark:text-white">CREATIVE.FOLIO</h1>
+</div>
+<div class="hidden md:flex gap-8 items-center font-bold uppercase tracking-wide">
+<a class="hover:underline decoration-4 underline-offset-4" href="#">Work</a>
+<a class="hover:underline decoration-4 underline-offset-4" href="#">About</a>
+<a class="hover:underline decoration-4 underline-offset-4" href="#">Services</a>
+<button class="bg-primary border-3 border-black px-6 py-2 neo-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-brutal-hover transition-all">
+                HIRE ME
+            </button>
+</div>
+</nav>
+<main class="max-w-[1440px] mx-auto">
+<!-- Hero Section -->
+<section class="relative min-h-[80vh] flex flex-col items-center justify-center border-x-4 border-black px-4 overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 20px 20px;"></div>
+<!-- Draggable Sticker Interface Simulation -->
+<div class="absolute inset-0 z-10 p-10 pointer-events-none">
+<!-- Sticker 1 -->
+<div class="sticker pointer-events-auto absolute top-1/4 left-10 w-48 h-48 bg-white border-4 border-black neo-shadow p-2 rotate-[-5deg]">
+<div class="w-full h-full bg-cover bg-center border-2 border-black" data-alt="Screenshot of a minimalist dashboard design" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCU3-bHIww1ql-ZCRSmuI3aOF4CKhlIu74ygod9Yg9krSMf14glXffCV8uEn0nnVI3T5emkI5YAWG96YW9M7XnhNRhH2w5aEnbnjlolD6E0WttpOebdAbtiM8L2PyohwPvJtw0LGtgDQLwaB9Ud2teN3lfrSsMWqkiM5FZOKUsEu1H6KWi5xNnW7OmNNq9ZH-MXNG9e-7JG3TpG1d_Pf1aB_kU40cTG2a4s9H5lrdQWSEdAZYlDzaRBQyuV6K2-B1FlvIb4b7n04Ka1');"></div>
+<p class="text-xs font-bold pt-2 uppercase">Project 01: VORTEX</p>
+</div>
+<!-- Sticker 2 -->
+<div class="sticker pointer-events-auto absolute bottom-20 right-20 w-40 h-40 bg-primary border-4 border-black neo-shadow p-4 rotate-[8deg] flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-5xl mb-2">star_rate</span>
+<p class="text-sm font-black uppercase leading-tight">Interaction Award '24</p>
+</div>
+<!-- Sticker 3 -->
+<div class="sticker pointer-events-auto absolute top-20 right-1/4 w-32 h-32 bg-[#4747ff] border-4 border-black neo-shadow rounded-full flex items-center justify-center rotate-[-12deg]">
+<span class="material-symbols-outlined text-white text-6xl">code</span>
+</div>
+<!-- Sticker 4 -->
+<div class="sticker pointer-events-auto absolute bottom-1/3 left-1/4 w-56 bg-white border-4 border-black neo-shadow p-4 rotate-[3deg]">
+<div class="flex gap-2 mb-2">
+<div class="w-3 h-3 rounded-full bg-black"></div>
+<div class="w-3 h-3 rounded-full bg-black"></div>
+<div class="w-3 h-3 rounded-full bg-black"></div>
+</div>
+<p class="text-lg font-bold uppercase italic">"The future of design is interactive."</p>
+</div>
+</div>
+<div class="z-0 text-center flex flex-col items-center max-w-4xl">
+<h2 class="text-[120px] md:text-[180px] font-black leading-[0.8] tracking-tighter uppercase dark:text-white">
+                    CREATIVE<br/>
+<span class="bg-primary text-black px-4 py-2 border-4 border-black neo-shadow">LAB</span>
+</h2>
+<div class="mt-20 flex flex-col items-center gap-6">
+<p class="text-xl md:text-2xl font-medium max-w-2xl px-6 bg-white dark:bg-black border-2 border-black inline-block py-2">
+                        A raw, energetic workspace where design meets code. Drag the stickers to explore my world.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-primary border-4 border-black px-10 py-4 text-xl font-black uppercase neo-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-brutal-hover transition-all">
+                            VIEW PROJECTS
+                        </button>
+<button class="bg-white dark:bg-gray-800 border-4 border-black px-10 py-4 text-xl font-black uppercase neo-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-brutal-hover transition-all">
+                            LET'S TALK
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Marquee Section -->
+<div class="bg-black text-primary border-y-4 border-black py-4 marquee-container">
+<div class="marquee-content text-4xl font-black uppercase flex gap-12">
+<span>Selected Works 2024</span>
+<span class="material-symbols-outlined text-4xl">star_rate</span>
+<span>Innovative UI Design</span>
+<span class="material-symbols-outlined text-4xl">star_rate</span>
+<span>Brand Identity</span>
+<span class="material-symbols-outlined text-4xl">star_rate</span>
+<span>Interactive Experiences</span>
+<span class="material-symbols-outlined text-4xl">star_rate</span>
+<span>Selected Works 2024</span>
+<span class="material-symbols-outlined text-4xl">star_rate</span>
+<span>Innovative UI Design</span>
+<span class="material-symbols-outlined text-4xl">star_rate</span>
+<span>Brand Identity</span>
+<span class="material-symbols-outlined text-4xl">star_rate</span>
+<span>Interactive Experiences</span>
+<span class="material-symbols-outlined text-4xl">star_rate</span>
+</div>
+</div>
+<!-- Featured Work Grid -->
+<section class="p-8 border-x-4 border-black bg-white dark:bg-background-dark">
+<h3 class="text-6xl font-black uppercase mb-12 dark:text-white">Selected Works</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project Card 1 -->
+<div class="group relative flex flex-col border-4 border-black neo-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-brutal-hover transition-all bg-white dark:bg-gray-800 overflow-hidden">
+<div class="aspect-video bg-cover bg-center border-b-4 border-black grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Mobile banking app interface design" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKPlgpoGiFWmLkXXFhhmWecG3HJXv0ALrFD8MODYW7KRz-etZlxCLEm9f63PoF058GbDU35_zNcUCEQOY01yTqYT44gMQlmaVBitNNY8FUYubaLRYbu7phg3qiAXI34ucwOg_hX7SwpXdf183Z4qM8j6WWj-VZD4Yp0wGsTdczc9yd2jqi40yhKy3AtkP9Pp5jeghrI2-5D3w3ZbDnVklT3T3ajY2O-wx03QKI4LUjTF2Oz2UJh8a1FD477yQjlCCzR0zVSI_Mjk7h');"></div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h4 class="text-2xl font-black uppercase">Neo-Banking App</h4>
+<span class="bg-primary border-2 border-black px-2 py-1 text-xs font-bold uppercase">App Design</span>
+</div>
+<p class="font-medium mb-6">Redefining the digital banking experience through brutalist aesthetics and high-performance React architecture.</p>
+<a class="inline-flex items-center gap-2 font-black uppercase text-lg border-b-4 border-primary" href="#">
+                            Read Case Study <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group relative flex flex-col border-4 border-black neo-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-brutal-hover transition-all bg-white dark:bg-gray-800 overflow-hidden">
+<div class="aspect-video bg-cover bg-center border-b-4 border-black grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Clean minimalist e-commerce website" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCqBBMe-1jiwkxIwZQg01o85l2hpi9g0b_vmdS4YEGcEH6FSn1PAJ_ixEoMZvlO4HFwQiZfS_nEiFpFizeaK8NJzfIBh0GLqjlVdIgxjRX76C4d3t4uemDg2WF5hExXbygHmBixP9Fiwxx3rK0ErCN24qdvluZ0LqyJW3IB0KERI7InaIQxVoCrrUDATh_cHE1OtNucBVNGkJVeDsfsFpXOXWrafchdchK0P1xRSZyz8xo3mdgt8tCRmmGepIoOpVNXy8u-3EFq4QY1');"></div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h4 class="text-2xl font-black uppercase">E-com Redesign</h4>
+<span class="bg-[#4747ff] text-white border-2 border-black px-2 py-1 text-xs font-bold uppercase">E-Commerce</span>
+</div>
+<p class="font-medium mb-6">High-conversion Shopify store for a premium streetwear brand, focusing on grid systems and typography.</p>
+<a class="inline-flex items-center gap-2 font-black uppercase text-lg border-b-4 border-primary" href="#">
+                            Read Case Study <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Project Card 3 (Bento Style Variation) -->
+<div class="group relative flex flex-col border-4 border-black neo-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-brutal-hover transition-all bg-primary overflow-hidden">
+<div class="p-6 h-full flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-6xl mb-4">dataset</span>
+<h4 class="text-3xl font-black uppercase leading-none mb-4">Brand Identity Kit</h4>
+<p class="font-bold">A comprehensive 3D brand system built for a Silicon Valley AI startup.</p>
+</div>
+<div class="mt-8 flex gap-2">
+<div class="w-12 h-12 rounded-full border-2 border-black bg-white flex items-center justify-center">
+<span class="material-symbols-outlined">3d_rotation</span>
+</div>
+<div class="w-12 h-12 rounded-full border-2 border-black bg-white flex items-center justify-center">
+<span class="material-symbols-outlined">palette</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services/Skills Section -->
+<section class="p-8 border-4 border-black bg-background-light dark:bg-background-dark">
+<div class="flex flex-col md:flex-row gap-12">
+<div class="md:w-1/3">
+<h3 class="text-6xl font-black uppercase leading-none mb-6 dark:text-white">Still Curious?</h3>
+<p class="text-xl font-medium dark:text-gray-300">My process is raw, transparent, and driven by data. I don't just build interfaces; I build experiences that stick.</p>
+</div>
+<div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="border-3 border-black p-6 bg-white dark:bg-gray-800 neo-shadow">
+<h5 class="text-2xl font-black uppercase mb-2">01. Strategy</h5>
+<p>Defining the core value and market position of your digital product.</p>
+</div>
+<div class="border-3 border-black p-6 bg-white dark:bg-gray-800 neo-shadow">
+<h5 class="text-2xl font-black uppercase mb-2">02. Design</h5>
+<p>High-fidelity UI and interactive prototypes with brutalist flair.</p>
+</div>
+<div class="border-3 border-black p-6 bg-white dark:bg-gray-800 neo-shadow">
+<h5 class="text-2xl font-black uppercase mb-2">03. Code</h5>
+<p>Building scalable front-end solutions with React, Next.js, and Tailwind.</p>
+</div>
+<div class="border-3 border-black p-6 bg-white dark:bg-gray-800 neo-shadow">
+<h5 class="text-2xl font-black uppercase mb-2">04. Growth</h5>
+<p>Iterative testing and optimization to ensure long-term success.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-24 px-8 border-x-4 border-b-4 border-black bg-white dark:bg-gray-900 flex flex-col items-center text-center">
+<div class="max-w-4xl">
+<h2 class="text-7xl md:text-9xl font-black uppercase leading-none mb-12 dark:text-white">LET'S<br/>WORK</h2>
+<div class="flex flex-wrap justify-center gap-4">
+<a class="bg-primary border-4 border-black px-12 py-6 text-2xl md:text-4xl font-black uppercase neo-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-brutal-hover transition-all" href="mailto:hello@creative.folio">
+                        SEND AN EMAIL
+                    </a>
+<div class="flex gap-4">
+<div class="bg-white dark:bg-black border-4 border-black p-6 neo-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-brutal-hover transition-all cursor-pointer">
+<span class="material-symbols-outlined text-4xl">alternate_email</span>
+</div>
+<div class="bg-white dark:bg-black border-4 border-black p-6 neo-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-brutal-hover transition-all cursor-pointer">
+<span class="material-symbols-outlined text-4xl">link</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-black text-white p-8 border-x-4 border-black">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div>
+<h5 class="text-3xl font-black uppercase mb-2">Creative.Folio</h5>
+<p class="text-gray-400">© 2024 Design &amp; Code by a human.</p>
+</div>
+<div class="flex gap-8 font-bold uppercase">
+<a class="hover:text-primary transition-colors" href="#">Twitter</a>
+<a class="hover:text-primary transition-colors" href="#">Dribbble</a>
+<a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-primary transition-colors" href="#">Instagram</a>
+</div>
+<button class="bg-primary text-black border-2 border-black p-4 neo-shadow hover:shadow-none hover:translate-x-1 hover:translate-y-1 transition-all" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+<span class="material-symbols-outlined font-black">arrow_upward</span>
+</button>
+</div>
+</footer>
+</main>
+<div class="fixed bottom-10 left-10 z-50">
+<button class="bg-white dark:bg-gray-800 border-3 border-black p-4 neo-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-brutal-hover transition-all" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+</div>
+</body></html>

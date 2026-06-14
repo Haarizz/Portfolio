@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Harikrishnan T Nair — Software Engineer | git log --career</title>
+<meta name="description" content="Harikrishnan T Nair (HAARIZZ) — Software Engineer. My career as a git commit history. Scroll through the build log." />
+<meta name="author" content="Harikrishnan T Nair" />
+<meta name="theme-color" content="#1e1e2e" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Harikrishnan T Nair — Software Engineer" />
+<meta property="og:description" content="My career as a git commit history. Java · Spring Boot · React · PostgreSQL." />
+<meta property="og:image" content="https://placehold.co/1200x630/1e1e2e/cba6f7/png?text=git+log+--career" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Harikrishnan T Nair — Software Engineer" />
+<meta name="twitter:description" content="My career as a git commit history. Scroll the build log." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%231e1e2e'/%3E%3Ctext x='50' y='72' font-family='monospace' font-size='60' font-weight='bold' text-anchor='middle' fill='%23cba6f7'%3EH%3C/text%3E%3C/svg%3E" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+tailwind.config = { theme:{ extend:{
+    colors:{ bg:'#1e1e2e', panel:'#181825', surface:'#252539', line:'#313244', txt:'#cdd6f4', dim:'#7f849c',
+             purple:'#cba6f7', blue:'#89b4fa', cyan:'#94e2d5', green:'#a6e3a1', orange:'#fab387', red:'#f38ba8', yellow:'#f9e2af' },
+    fontFamily:{ sans:['Inter','sans-serif'], mono:['JetBrains Mono','monospace'] }
+}}}
+</script>
+<style>
+    body { font-family:'Inter',sans-serif; background:#1e1e2e; color:#cdd6f4; }
+    .mono { font-family:'JetBrains Mono',monospace; }
+    /* window chrome */
+    .ide { box-shadow:0 30px 80px rgba(0,0,0,.5); }
+    /* branch graph rail */
+    .rail { position:absolute; left:0; top:0; bottom:0; width:60px; }
+    .commit-dot { box-shadow:0 0 0 4px #1e1e2e, 0 0 0 5px currentColor; }
+    .reveal { opacity:0; transform:translateX(-12px); transition:.55s ease; }
+    .reveal.in { opacity:1; transform:none; }
+    .diff-add { color:#a6e3a1; } .diff-rm { color:#f38ba8; }
+    .scroll::-webkit-scrollbar{width:10px;} .scroll::-webkit-scrollbar-thumb{background:#313244;border-radius:8px;} .scroll::-webkit-scrollbar-track{background:#181825;}
+    .tab.active { background:#1e1e2e; color:#cdd6f4; border-top:2px solid #cba6f7; }
+    #progressRail { position:fixed; left:0; top:0; height:3px; background:#cba6f7; z-index:50; transition:width .1s; }
+    @media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;} }
+</style>
+</head>
+<body class="min-h-screen p-0 md:p-6">
+<div id="progressRail" style="width:0%"></div>
+
+<div class="max-w-5xl mx-auto ide rounded-none md:rounded-xl overflow-hidden border border-line">
+    <!-- title bar -->
+    <div class="bg-panel px-4 h-10 flex items-center justify-between border-b border-line">
+        <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-red"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow"></span>
+            <span class="w-3 h-3 rounded-full bg-green"></span>
+        </div>
+        <p class="mono text-xs text-dim">harikrishnan-t-nair — career.git — git log --oneline --graph</p>
+        <a href="Harikrishnan-T-Nair-Resume.pdf" download class="text-xs text-purple hover:underline mono">resume.pdf</a>
+    </div>
+
+    <!-- tab bar -->
+    <div class="bg-panel flex text-xs mono border-b border-line overflow-x-auto">
+        <button data-tab="log" class="tab active px-4 py-2 whitespace-nowrap flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-orange">history</span> BUILD_LOG</button>
+        <button data-tab="readme" class="tab px-4 py-2 whitespace-nowrap text-dim flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-blue">description</span> README.md</button>
+        <button data-tab="stack" class="tab px-4 py-2 whitespace-nowrap text-dim flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-green">tune</span> stack.json</button>
+        <button data-tab="contact" class="tab px-4 py-2 whitespace-nowrap text-dim flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-cyan">mail</span> contact.sh</button>
+    </div>
+
+    <div class="grid md:grid-cols-[200px_1fr]">
+        <!-- sidebar -->
+        <aside class="hidden md:block bg-panel border-r border-line p-3 scroll" style="max-height:78vh; overflow:auto">
+            <p class="mono text-[11px] text-dim mb-2 uppercase tracking-wider">Explorer</p>
+            <div class="space-y-1 text-sm">
+                <p class="flex items-center gap-1 text-purple"><span class="material-symbols-outlined text-[16px]">folder_open</span> career/</p>
+                <a href="#c1" class="block pl-5 text-dim hover:text-txt">▸ joined-geebu</a>
+                <a href="#c2" class="block pl-5 text-dim hover:text-txt">▸ billbull-erp</a>
+                <a href="#c3" class="block pl-5 text-dim hover:text-txt">▸ inventory-reg</a>
+                <a href="#c4" class="block pl-5 text-dim hover:text-txt">▸ graduated</a>
+                <a href="#c5" class="block pl-5 text-dim hover:text-txt">▸ ml-research</a>
+                <a href="#c6" class="block pl-5 text-dim hover:text-txt">▸ java-cert</a>
+                <a href="#c7" class="block pl-5 text-dim hover:text-txt">▸ init</a>
+            </div>
+            <div class="mt-5 pt-4 border-t border-line text-xs mono text-dim space-y-1">
+                <p><span class="text-green">●</span> on branch <span class="text-txt">main</span></p>
+                <p>7 commits</p>
+                <p>HEAD → <span class="text-orange">@GEEBU</span></p>
+            </div>
+        </aside>
+
+        <!-- main panel -->
+        <main class="bg-bg p-5 md:p-8 scroll" style="max-height:78vh; overflow:auto" id="mainPanel">
+
+            <!-- TAB: BUILD_LOG -->
+            <section data-panel="log">
+                <div class="mb-6">
+                    <h1 class="text-2xl md:text-3xl font-extrabold">Harikrishnan T Nair</h1>
+                    <p class="text-dim mono text-sm">Software Engineer @ GEEBU InfoTech · building systems that ship</p>
+                    <p class="text-dim text-sm mt-2 max-w-xl">My career as a commit history — newest first. Each commit is a real milestone. Scroll the log.</p>
+                </div>
+                <div id="log" class="relative"></div>
+            </section>
+
+            <!-- TAB: README -->
+            <section data-panel="readme" class="hidden mono text-sm leading-relaxed space-y-4">
+                <h2 class="text-xl font-bold text-purple"># Harikrishnan T Nair</h2>
+                <p class="text-dim">> Software Engineer · Backend &amp; systems · Java / Spring Boot</p>
+                <p class="text-txt">I build the backend engines behind real businesses — the inventory, finance and payroll systems people depend on every day. At <span class="text-blue">GEEBU InfoTech</span> I work on BillBull ERP, a production multi-branch platform.</p>
+                <h3 class="text-blue font-bold mt-4">## philosophy</h3>
+                <p class="text-dim">- clean architecture &gt; clever code<br/>- design for the business that grows, not the demo<br/>- code the next engineer can actually read</p>
+                <h3 class="text-blue font-bold mt-4">## education</h3>
+                <p class="text-dim">B.Tech Computer Science — UKF College of Engg &amp; Tech (2021—2025) · CGPA <span class="text-green">8.01</span><br/>APJ Abdul Kalam Technological University · Kollam</p>
+                <h3 class="text-blue font-bold mt-4">## certifications</h3>
+                <p class="text-dim">- Java Software Developer — ICT Academy &amp; Infosys Foundation (120h)<br/>- AWS Cloud — Computron Training Solutions<br/>- Python Workshop — NIT Calicut</p>
+            </section>
+
+            <!-- TAB: STACK -->
+            <section data-panel="stack" class="hidden">
+                <pre class="mono text-sm text-dim mb-6 leading-relaxed">{
+  <span class="text-blue">"role"</span>: <span class="text-green">"Software Engineer"</span>,
+  <span class="text-blue">"focus"</span>: <span class="text-green">"backend · systems · ERP"</span>,
+}</pre>
+                <div id="stackPanel" class="grid sm:grid-cols-2 gap-4"></div>
+            </section>
+
+            <!-- TAB: CONTACT -->
+            <section data-panel="contact" class="hidden mono text-sm">
+                <pre class="text-dim leading-relaxed mb-6">$ ./contact.sh --all
+<span class="text-green">→ resolving channels...</span></pre>
+                <div class="space-y-3">
+                    <a href="mailto:harikrishnantnair60@gmail.com" class="flex items-center gap-3 p-3 bg-surface rounded-lg border border-line hover:border-purple transition-colors">
+                        <span class="material-symbols-outlined text-purple">mail</span><div><p class="text-txt">harikrishnantnair60@gmail.com</p><p class="text-dim text-xs">email</p></div></a>
+                    <a href="tel:+919746757495" class="flex items-center gap-3 p-3 bg-surface rounded-lg border border-line hover:border-green transition-colors">
+                        <span class="material-symbols-outlined text-green">call</span><div><p class="text-txt">+91 97467 57495</p><p class="text-dim text-xs">phone</p></div></a>
+                    <a href="https://github.com/Haarizz" target="_blank" rel="noopener" class="flex items-center gap-3 p-3 bg-surface rounded-lg border border-line hover:border-blue transition-colors">
+                        <span class="material-symbols-outlined text-blue">code</span><div><p class="text-txt">github.com/Haarizz</p><p class="text-dim text-xs">github</p></div></a>
+                    <a href="https://www.linkedin.com/in/harikrishnan-t-nair" target="_blank" rel="noopener" class="flex items-center gap-3 p-3 bg-surface rounded-lg border border-line hover:border-cyan transition-colors">
+                        <span class="material-symbols-outlined text-cyan">work</span><div><p class="text-txt">in/harikrishnan-t-nair</p><p class="text-dim text-xs">linkedin</p></div></a>
+                </div>
+                <p class="text-dim text-xs mt-6">Kollam, India · Remote · open to full-time roles</p>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- status bar -->
+    <div class="bg-purple text-bg px-4 h-7 flex items-center justify-between text-xs mono">
+        <div class="flex items-center gap-3">
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">commit</span> main</span>
+            <span>↑ 7 commits</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <span>UTF-8</span><span>Spaces: 4</span><span class="hidden sm:inline">Harikrishnan · © 2026</span>
+        </div>
+    </div>
+</div>
+
+<script>
+/* ===== COMMIT DATA ===== */
+const COMMITS = [
+    { id:'c1', hash:'a3f9c1e', branch:'main', tag:'HEAD', color:'orange', date:'2025 · Present', type:'feat',
+      title:'Joined GEEBU InfoTech as Software Engineer',
+      body:'Building production ERP modules on a live multi-branch SaaS platform.',
+      diff:[['+','shipped BillBull ERP modules (inventory, sales, purchase)'],
+            ['+','Spring Boot REST APIs + PostgreSQL data layer'],
+            ['+','financial accounting & payroll flows'],
+            ['+','role-based access control']],
+      stack:['Spring Boot','React','PostgreSQL','TypeScript'] },
+
+    { id:'c2', hash:'7b2e08d', branch:'main', tag:null, color:'green', date:'2025', type:'ship',
+      title:'BillBull ERP — production release',
+      body:'Multi-branch retail ERP unifying inventory, finance, sales, purchase and payroll on one data model. 387+ commits.',
+      diff:[['+','multi-branch / outlet consolidation'],
+            ['+','automated accounting ledger entries'],
+            ['+','clean module boundaries & data integrity']],
+      stack:['Spring Boot','React','PostgreSQL'], url:'https://github.com/Haarizz/Billbull_Retail' },
+
+    { id:'c3', hash:'e4d1a92', branch:'main', tag:null, color:'blue', date:'2025', type:'ship',
+      title:'inventory-registries — full-stack system',
+      body:'React (Vite) front end + Spring Boot API for tracking stock and registry records.',
+      diff:[['+','React + Vite frontend'],['+','Spring Boot backend API']],
+      stack:['React','Vite','Spring Boot'], url:'https://github.com/Haarizz/inventory-registries' },
+
+    { id:'c4', hash:'5c8a740', branch:'main', tag:'v1.0', color:'purple', date:'2025', type:'edu',
+      title:'Graduated — B.Tech Computer Science',
+      body:'UKF College of Engineering & Technology · APJ Abdul Kalam Technological University.',
+      diff:[['+','CGPA 8.01'],['+','specialization: software engineering']],
+      stack:['Data Structures','DBMS','OOP'] },
+
+    { id:'c5', hash:'9f1b3c6', branch:'research', tag:null, color:'red', date:'2024—2025', type:'research',
+      title:'Final-year research — Blood Cancer Detection',
+      body:'Deep-learning + image-processing pipeline detecting early signs of blood cancer from medical images.',
+      diff:[['+','deep learning model for medical imaging'],['+','early-detection pipeline']],
+      stack:['Python','Deep Learning','Image Processing'] },
+
+    { id:'c6', hash:'2d7e051', branch:'main', tag:null, color:'cyan', date:'2024', type:'cert',
+      title:'Java Software Developer + projects',
+      body:'120-hour Java program (ICT Academy & Infosys Foundation). Built JobXplore & CareCloud.',
+      diff:[['+','servlets, Spring Boot, Hibernate, MySQL'],
+            ['+','JobXplore — job portal'],
+            ['+','CareCloud — healthcare platform']],
+      stack:['Java','Spring Boot','Hibernate','MySQL'], url:'https://github.com/Haarizz/JOBPORTAL' },
+
+    { id:'c7', hash:'0000000', branch:'main', tag:'init', color:'dim', date:'2021', type:'init',
+      title:'init: began the journey',
+      body:'Started B.Tech CSE — first commit. Curiosity about solving real problems with code.',
+      diff:[['+','git init career']],
+      stack:['C','Python','curiosity'] },
+];
+const TYPE_BADGE = { feat:'green', ship:'blue', edu:'purple', research:'red', cert:'cyan', init:'dim' };
+
+/* ===== RENDER LOG ===== */
+const COLOR = c => ({orange:'#fab387',green:'#a6e3a1',blue:'#89b4fa',purple:'#cba6f7',red:'#f38ba8',cyan:'#94e2d5',dim:'#7f849c'}[c]||'#cba6f7');
+(function () {
+    const log = document.getElementById('log');
+    log.innerHTML = COMMITS.map((c,i)=>`
+        <div id="${c.id}" class="reveal relative pl-10 pb-8">
+            <!-- rail -->
+            <span class="absolute left-[7px] top-2 bottom-0 w-px" style="background:${i===COMMITS.length-1?'transparent':'#313244'}"></span>
+            <span class="commit-dot absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full" style="background:${COLOR(c.color)}; color:${COLOR(c.color)}"></span>
+            <div class="flex flex-wrap items-center gap-2 mb-1">
+                <span class="mono text-xs" style="color:${COLOR(c.color)}">${c.hash}</span>
+                <span class="mono text-[10px] px-1.5 py-0.5 rounded bg-surface text-${TYPE_BADGE[c.type]}">${c.type}</span>
+                ${c.tag?`<span class="mono text-[10px] px-1.5 py-0.5 rounded border border-orange text-orange">tag: ${c.tag}</span>`:''}
+                <span class="mono text-xs text-dim ml-auto">${c.date}</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg">${c.title}</h3>
+            <p class="text-dim text-sm mb-3">${c.body}</p>
+            <div class="bg-panel border border-line rounded-lg p-3 mono text-xs space-y-1 mb-3">
+                ${c.diff.map(([s,t])=>`<div class="${s==='+'?'diff-add':'diff-rm'}">${s} ${t}</div>`).join('')}
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+                ${c.stack.map(s=>`<span class="mono text-[10px] px-2 py-0.5 rounded bg-surface text-dim">${s}</span>`).join('')}
+                ${c.url?`<a href="${c.url}" target="_blank" rel="noopener" class="mono text-xs text-blue hover:text-purple ml-1">› git remote</a>`:''}
+            </div>
+        </div>`).join('');
+})();
+
+/* ===== STACK PANEL ===== */
+(function () {
+    const groups = {
+        'Backend':['Java','Spring Boot','Hibernate','REST API','Servlets'],
+        'Frontend':['React','Vite','JavaScript','TypeScript','Tailwind'],
+        'Database':['PostgreSQL','MySQL','DB Design','Query Optimization'],
+        'Tools & Cloud':['Git','GitHub','AWS','Linux'],
+    };
+    document.getElementById('stackPanel').innerHTML = Object.entries(groups).map(([k,v])=>`
+        <div class="bg-surface rounded-lg p-4 border border-line">
+            <p class="font-bold text-purple mb-3 mono text-sm">${k}</p>
+            <div class="flex flex-wrap gap-2">${v.map(s=>`<span class="mono text-xs px-2 py-1 rounded bg-panel text-green">${s}</span>`).join('')}</div>
+        </div>`).join('');
+})();
+
+/* ===== TABS ===== */
+(function () {
+    const tabs=document.querySelectorAll('.tab'), panels=document.querySelectorAll('[data-panel]');
+    tabs.forEach(t=>t.addEventListener('click', ()=>{
+        tabs.forEach(x=>{x.classList.remove('active'); x.classList.add('text-dim');});
+        t.classList.add('active'); t.classList.remove('text-dim');
+        panels.forEach(p=>p.classList.toggle('hidden', p.dataset.panel!==t.dataset.tab));
+        document.getElementById('mainPanel').scrollTop=0;
+    }));
+})();
+
+/* ===== REVEAL + PROGRESS ===== */
+(function () {
+    const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+    const panel=document.getElementById('mainPanel'), rail=document.getElementById('progressRail');
+    panel.addEventListener('scroll', ()=>{ rail.style.width=(panel.scrollTop/(panel.scrollHeight-panel.clientHeight)*100)+'%'; }, {passive:true});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HAARIZZ — Harikrishnan T Nair · Portfolio Designs</title>
+<meta name="description" content="Five portfolio designs for Harikrishnan T Nair (HAARIZZ), Software Engineer. Preview each and pick your favourite." />
+<meta name="author" content="Harikrishnan T Nair" />
+<meta name="theme-color" content="#0d1117" />
+<meta property="og:title" content="HAARIZZ — Portfolio Designs" />
+<meta property="og:description" content="Five interactive portfolio designs for Harikrishnan T Nair, Software Engineer." />
+<meta property="og:image" content="https://placehold.co/1200x630/0d1117/3bf08a/png?text=HAARIZZ+%C2%B7+5+Designs" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230d1117'/%3E%3Ctext x='50' y='72' font-family='monospace' font-size='60' font-weight='bold' text-anchor='middle' fill='%233bf08a'%3EH%3C/text%3E%3C/svg%3E" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+    body { font-family:'Space Grotesk',sans-serif; background:#0a0c12; color:#e6ebf5; }
+    .mono { font-family:'JetBrains Mono',monospace; }
+    .grid-bg { background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        background-size: 40px 40px; }
+    .card { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+    .preview-wrap { position:relative; overflow:hidden; }
+    /* scale a full-size iframe down into a thumbnail */
+    .preview-wrap iframe { position:absolute; top:0; left:0; width:1280px; height:800px;
+        transform: scale(.3125); transform-origin: top left; border:0; pointer-events:none; }
+    .preview-mask { position:absolute; inset:0; z-index:2; background:linear-gradient(180deg, transparent 60%, rgba(10,12,18,.4)); }
+    .reveal { opacity:0; transform:translateY(20px); transition:.6s ease; }
+    .reveal.in { opacity:1; transform:none; }
+    @media (prefers-reduced-motion: reduce){ .card:hover{transform:none;} .reveal{opacity:1;transform:none;} }
+</style>
+</head>
+<body class="grid-bg min-h-screen">
+
+<!-- header -->
+<header class="max-w-6xl mx-auto px-6 pt-16 pb-10 text-center">
+    <p class="mono text-sm text-green-400 mb-4 tracking-widest">$ ./select-a-design</p>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">HARIKRISHNAN <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-400">T NAIR</span></h1>
+    <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">Software Engineer @ GEEBU InfoTech — five interactive portfolio designs, same real work. Hover a card to preview, click to open the full experience.</p>
+    <div class="flex flex-wrap justify-center gap-3 mt-6 text-sm">
+        <a href="https://github.com/Haarizz" target="_blank" rel="noopener" class="border border-white/15 px-4 py-2 rounded-lg hover:border-green-400 hover:text-green-400 transition-colors">GitHub</a>
+        <a href="https://www.linkedin.com/in/harikrishnan-t-nair" target="_blank" rel="noopener" class="border border-white/15 px-4 py-2 rounded-lg hover:border-cyan-400 hover:text-cyan-400 transition-colors">LinkedIn</a>
+        <a href="mailto:harikrishnantnair60@gmail.com" class="border border-white/15 px-4 py-2 rounded-lg hover:border-green-400 hover:text-green-400 transition-colors">Email</a>
+        <a href="neo-brutalist/Harikrishnan-T-Nair-Resume.pdf" download class="bg-green-400 text-black px-4 py-2 rounded-lg font-bold hover:bg-cyan-400 transition-colors">Download Resume</a>
+    </div>
+</header>
+
+<!-- cards -->
+<main class="max-w-6xl mx-auto px-6 pb-20">
+    <div id="cards" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+    <p class="text-center text-gray-500 text-sm mt-14 mono">
+        Tip: pick ONE as your primary portfolio for your real domain. My recommendation for a backend engineer: <span class="text-green-400">the Terminal</span>.
+    </p>
+</main>
+
+<footer class="border-t border-white/10 py-8 text-center text-gray-500 text-sm">
+    <p class="mono">© 2026 Harikrishnan T Nair · Kollam, India · Remote</p>
+</footer>
+
+<script>
+const DESIGNS = [
+    { n:'01', title:'Neo-Brutalist', tag:'Bold · Yellow', accent:'#f2f20d',
+      desc:'High-energy brutalist: thick borders, hard shadows, draggable stickers.',
+      path:'neo-brutalist/index.html' },
+    { n:'02', title:'Glassmorphic', tag:'Elegant · Green glass', accent:'#13ec5b',
+      desc:'Frosted glass, serif headings, fireflies, filters & ambient sound.',
+      path:'glass/index.html' },
+    { n:'03', title:'Terminal / Dev-OS', tag:'Recommended · CRT', accent:'#3bf08a',
+      desc:'A REAL working command terminal. Type help, whoami, projects.',
+      path:'terminal/index.html', star:true },
+    { n:'04', title:'Architecture Map', tag:'Systems · Neon', accent:'#00e5ff',
+      desc:'Pan/zoom system diagram with animated data-flow. Click the nodes.',
+      path:'architecture/index.html' },
+    { n:'05', title:'Build-Log / Git', tag:'Story · IDE', accent:'#cba6f7',
+      desc:'Your career as a git commit history inside an IDE window.',
+      path:'build-log/index.html' },
+];
+
+const enc = p => p.split('/').map(encodeURIComponent).join('/');
+const cards = document.getElementById('cards');
+cards.innerHTML = DESIGNS.map(d => `
+    <a href="${enc(d.path)}" class="card reveal block rounded-2xl border border-white/10 bg-[#0f1219] overflow-hidden group relative" style="--a:${d.accent}">
+        ${d.star?`<span class="absolute top-3 right-3 z-10 text-xs font-bold px-2 py-1 rounded-full" style="background:${d.accent};color:#000">★ PICK</span>`:''}
+        <div class="preview-wrap h-[200px] bg-[#05060f] border-b border-white/10">
+            <iframe src="${enc(d.path)}" loading="lazy" title="${d.title} preview" tabindex="-1" aria-hidden="true"></iframe>
+            <div class="preview-mask"></div>
+        </div>
+        <div class="p-5">
+            <div class="flex items-center justify-between mb-1">
+                <h2 class="text-xl font-bold group-hover:text-[color:var(--a)] transition-colors" style="">${d.title}</h2>
+                <span class="mono text-xs text-gray-500">${d.n}</span>
+            </div>
+            <p class="mono text-xs mb-3" style="color:${d.accent}">${d.tag}</p>
+            <p class="text-sm text-gray-400 leading-relaxed mb-4">${d.desc}</p>
+            <span class="inline-flex items-center gap-1 text-sm font-bold" style="color:${d.accent}">
+                open design <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </span>
+        </div>
+    </a>`).join('');
+
+// reveal on scroll
+const io = new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.transitionDelay=(i*70)+'ms'; io.observe(el); });
+</script>
+</body>
+</html>
