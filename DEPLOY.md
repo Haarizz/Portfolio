@@ -112,11 +112,22 @@ When you're ready, send me your Web3Forms key and I'll wire it in for you.
 
 ## What's already done for you
 - ✅ Every design: SEO meta, Open Graph + Twitter cards, favicon, `theme-color`
+- ✅ Branded 1200×630 OG preview images per design (`/assets/og-*.svg`)
 - ✅ Every design: `vercel.json` (clean URLs, PDF caching, security headers)
 - ✅ Real links throughout (verified GitHub repos, LinkedIn, email, phone)
 - ✅ Resume PDF bundled in each folder
+- ✅ Contact form (glass design) is Web3Forms-ready
 - ✅ `prefers-reduced-motion` + touch fallbacks
 
-> Note: OG preview images currently use a `placehold.co` placeholder. For a polished
-> link-preview, replace the `og:image` URL in your chosen design with a real 1200×630 PNG
-> (a screenshot of the page works great). Ask me and I'll set it up.
+## Activate the contact form (1 minute)
+The glass design's form works as a `mailto:` fallback out of the box. To receive real
+submissions in your inbox:
+1. Get a free key at **https://web3forms.com** (enter your email — that's the inbox).
+2. Open `glass/index.html`, search for `WEB3FORMS_KEY`, and paste your key:
+   `const WEB3FORMS_KEY = 'your-key-here';`
+3. `git add -A && git commit -m "enable contact form" && git push` → auto-deploys.
+
+> OG link-preview images are branded SVGs hosted at `/assets/`. SVG previews render on
+> most platforms (X, Telegram, Discord, Slack). LinkedIn occasionally prefers PNG — if you
+> want guaranteed LinkedIn previews, drop a 1200×630 PNG screenshot in `/assets/` and point
+> the `og:image` at it.

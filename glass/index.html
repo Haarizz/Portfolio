@@ -10,7 +10,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Harikrishnan T Nair — Software Engineer" />
 <meta property="og:description" content="Engineering systems that grow & scale. Glassmorphic portfolio." />
-<meta property="og:image" content="https://placehold.co/1200x630/0a120d/13ec5b/png?text=HAARIZZ+%C2%B7+Software+Engineer" />
+<meta property="og:url" content="https://haarizz.vercel.app/glass/" />
+<meta property="og:image" content="https://haarizz.vercel.app/assets/og-glass.svg" />
+<meta property="og:image:type" content="image/svg+xml" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:image" content="https://haarizz.vercel.app/assets/og-glass.svg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Harikrishnan T Nair — Software Engineer" />
 <meta name="twitter:description" content="Engineering systems that grow & scale — Java, Spring Boot, React, PostgreSQL." />
@@ -656,15 +661,24 @@
         <p class="text-white/60 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
             Got a system to build or a team to strengthen? I'm open to full-time roles and serious engineering work. Drop me a line — let's talk.
         </p>
-        <form id="contactForm" class="max-w-md mx-auto flex flex-col gap-4" action="mailto:harikrishnantnair60@gmail.com" method="post" enctype="text/plain">
+        <!--
+            CONTACT FORM SETUP (free, no backend):
+            1. Get a free access key at https://web3forms.com (enter your email — that's where messages arrive).
+            2. Paste it into the WEB3FORMS_KEY value in the <script> below (search "WEB3FORMS_KEY").
+            Until a key is set, the form gracefully falls back to opening the visitor's email client.
+        -->
+        <form id="contactForm" class="max-w-md mx-auto flex flex-col gap-4" novalidate>
             <div class="flex flex-col md:flex-row gap-4">
                 <input name="name" required class="flex-1 bg-white/5 border-white/10 rounded-xl px-5 py-4 focus:ring-primary focus:border-primary transition-all outline-none" placeholder="Full Name" type="text"/>
                 <input name="email" required class="flex-1 bg-white/5 border-white/10 rounded-xl px-5 py-4 focus:ring-primary focus:border-primary transition-all outline-none" placeholder="Email" type="email"/>
             </div>
             <textarea name="message" required class="bg-white/5 border-white/10 rounded-xl px-5 py-4 focus:ring-primary focus:border-primary transition-all outline-none" placeholder="Tell me about your project or role" rows="4"></textarea>
-            <button type="submit" class="bg-primary text-background-dark py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:scale-[1.02] active:scale-[0.98] transition-all">
+            <!-- honeypot (spam trap) -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off"/>
+            <button type="submit" id="contactSubmit" class="bg-primary text-background-dark py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:scale-[1.02] active:scale-[0.98] transition-all">
                 Send Message
             </button>
+            <p id="contactStatus" class="text-sm min-h-[1.25rem]" role="status" aria-live="polite"></p>
         </form>
         <div class="flex flex-wrap justify-center gap-6 mt-10 text-sm text-white/50">
             <a href="mailto:harikrishnantnair60@gmail.com" class="hover:text-primary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-base">mail</span> harikrishnantnair60@gmail.com</a>
@@ -1006,6 +1020,62 @@ const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
         on = !on;
         if (on) { startAmbient(); icon.textContent = 'music_note'; btn.title = 'Ambient sound (on)'; btn.classList.add('!bg-primary/20'); }
         else { stopAmbient(); icon.textContent = 'music_off'; btn.title = 'Ambient sound (off)'; btn.classList.remove('!bg-primary/20'); }
+    });
+})();
+
+/* ===== Contact form (Web3Forms) ===== */
+(function () {
+    // ▼▼▼ PASTE YOUR FREE WEB3FORMS ACCESS KEY HERE (from https://web3forms.com) ▼▼▼
+    const WEB3FORMS_KEY = '';
+    // ▲▲▲ leave empty to fall back to opening the visitor's email client ▲▲▲
+
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('contactStatus');
+    const submit = document.getElementById('contactSubmit');
+    if (!form) return;
+
+    function setStatus(msg, ok) {
+        status.textContent = msg;
+        status.style.color = ok ? '#13ec5b' : '#ff8080';
+    }
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(form).entries());
+        if (data.botcheck) return; // honeypot tripped
+
+        if (!data.name || !data.email || !data.message) { setStatus('Please fill in all fields.', false); return; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) { setStatus('Please enter a valid email.', false); return; }
+
+        // Fallback: no key set → open mail client with prefilled message
+        if (!WEB3FORMS_KEY) {
+            const body = encodeURIComponent(`From: ${data.name} (${data.email})\n\n${data.message}`);
+            window.location.href = `mailto:harikrishnantnair60@gmail.com?subject=${encodeURIComponent('Portfolio enquiry from '+data.name)}&body=${body}`;
+            setStatus('Opening your email app…', true);
+            return;
+        }
+
+        submit.disabled = true; const original = submit.textContent; submit.textContent = 'Sending…';
+        setStatus('', true);
+        try {
+            const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    access_key: WEB3FORMS_KEY,
+                    subject: 'New portfolio enquiry — ' + data.name,
+                    from_name: data.name,
+                    name: data.name, email: data.email, message: data.message,
+                })
+            });
+            const json = await res.json();
+            if (json.success) { form.reset(); setStatus('✓ Message sent — thanks! I’ll reply soon.', true); }
+            else { setStatus('Something went wrong. Email me directly: harikrishnantnair60@gmail.com', false); }
+        } catch (err) {
+            setStatus('Network error. Email me directly: harikrishnantnair60@gmail.com', false);
+        } finally {
+            submit.disabled = false; submit.textContent = original;
+        }
     });
 })();
 </script>
