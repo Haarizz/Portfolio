@@ -252,13 +252,18 @@ tailwind.config = { theme: { extend: {
 <script>
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ===== ANIMATED DASH FIELD (Antigravity-style) ===== */
+/* ===== ANTIGRAVITY DASH FIELD =====
+   Dashes sit on a jittered grid, breathe in place, and each one ROTATES to
+   point around the cursor (tangential swirl). A clear circle is kept in the
+   centre so the hero text stays readable. */
 (function () {
     const canvas = document.getElementById('field');
     if (!canvas || reduceMotion) return;
     const ctx = canvas.getContext('2d');
-    const COLORS = ['#1a73e8','#ea4335','#fbbc04','#34a853'];
-    let w, h, dpr, dashes = [], running = true, mouse = { x:-9999, y:-9999 };
+    const COLORS = ['#1a73e8','#ea4335','#fbbc04','#34a853','#9334e6'];
+    let w, h, dpr, dashes = [], running = true, t = 0;
+    // mouse in CSS px; default to centre so the field looks intentional before first move
+    let mx = innerWidth / 2, my = innerHeight * 0.42, tmx = mx, tmy = my;
 
     function resize() {
         dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -266,46 +271,60 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
         canvas.style.width = innerWidth + 'px'; canvas.style.height = innerHeight + 'px';
     }
     function make() {
-        const count = Math.min(Math.floor(innerWidth * innerHeight / 9000), 160);
-        dashes = Array.from({ length: count }, () => spawn(true));
-    }
-    function spawn(anywhere) {
-        return {
-            x: Math.random() * w,
-            y: anywhere ? Math.random() * h : h + 20 * dpr,
-            len: (Math.random() * 10 + 6) * dpr,
-            ang: (-Math.PI/2) + (Math.random() - 0.5) * 0.5,  // mostly upward, slight spread
-            sp: (Math.random() * 0.5 + 0.25) * dpr,
-            col: COLORS[(Math.random() * COLORS.length) | 0],
-            wob: Math.random() * Math.PI * 2,
-            wobSp: Math.random() * 0.02 + 0.005,
-            a: Math.random() * 0.5 + 0.35,
-        };
+        dashes = [];
+        const gap = 46 * dpr;                 // grid spacing
+        const clearR = Math.min(w, h) * 0.20; // empty circle in the centre
+        const cx = w / 2, cy = h * 0.42;
+        for (let gx = gap * 0.5; gx < w; gx += gap) {
+            for (let gy = gap * 0.5; gy < h; gy += gap) {
+                const jx = gx + (Math.random() - 0.5) * gap * 0.6;
+                const jy = gy + (Math.random() - 0.5) * gap * 0.6;
+                if (Math.hypot(jx - cx, jy - cy) < clearR) continue; // keep centre clear
+                dashes.push({
+                    x: jx, y: jy,
+                    len: (Math.random() * 7 + 7) * dpr,
+                    col: COLORS[(Math.random() * COLORS.length) | 0],
+                    ang: Math.random() * Math.PI * 2,        // current angle (eased toward target)
+                    phase: Math.random() * Math.PI * 2,       // breathing offset
+                    baseA: Math.random() * 0.35 + 0.4,
+                });
+            }
+        }
     }
     function step() {
         if (!running) return;
+        t += 0.016;
+        // ease mouse for smooth response
+        mx += (tmx - mx) * 0.08; my += (tmy - my) * 0.08;
+        const cmx = mx * dpr, cmy = my * dpr;
         ctx.clearRect(0, 0, w, h);
-        for (let i = 0; i < dashes.length; i++) {
-            const d = dashes[i];
-            d.wob += d.wobSp;
-            const driftX = Math.cos(d.wob) * 0.4 * dpr;
-            d.x += Math.cos(d.ang) * d.sp + driftX;
-            d.y += Math.sin(d.ang) * d.sp;
-            // gentle mouse repulsion
-            const mdx = d.x - mouse.x * dpr, mdy = d.y - mouse.y * dpr;
-            const dist = Math.hypot(mdx, mdy);
-            if (dist < 120 * dpr) { d.x += (mdx / dist) * 1.2 * dpr; d.y += (mdy / dist) * 1.2 * dpr; }
-            if (d.y < -20 * dpr || d.x < -20*dpr || d.x > w + 20*dpr) dashes[i] = spawn(false);
-            // draw a small rounded dash
-            const ex = d.x + Math.cos(d.ang) * d.len, ey = d.y + Math.sin(d.ang) * d.len;
-            ctx.beginPath(); ctx.moveTo(d.x, d.y); ctx.lineTo(ex, ey);
-            ctx.strokeStyle = d.col; ctx.globalAlpha = d.a; ctx.lineWidth = 2.4 * dpr; ctx.lineCap = 'round';
+        ctx.lineCap = 'round';
+        for (const d of dashes) {
+            // target angle = tangential (perpendicular) to the line from cursor → dash,
+            // so dashes swirl around the pointer like the reference.
+            const dx = d.x - cmx, dy = d.y - cmy;
+            const target = Math.atan2(dy, dx) + Math.PI / 2;
+            // shortest-path easing toward target angle
+            let diff = target - d.ang;
+            diff = Math.atan2(Math.sin(diff), Math.cos(diff));
+            d.ang += diff * 0.12;
+            // breathing: length + opacity pulse, plus a subtle ripple from the cursor
+            const distN = Math.min(Math.hypot(dx, dy) / (380 * dpr), 1);
+            const breathe = 0.75 + 0.25 * Math.sin(t * 1.6 + d.phase);
+            const ripple = 1 + 0.5 * (1 - distN) * Math.sin(t * 3 - distN * 6);
+            const len = d.len * breathe * ripple;
+            const alpha = d.baseA * (0.55 + 0.45 * breathe) * (0.5 + 0.5 * (1 - distN));
+            const hx = Math.cos(d.ang) * len * 0.5, hy = Math.sin(d.ang) * len * 0.5;
+            ctx.beginPath();
+            ctx.moveTo(d.x - hx, d.y - hy);
+            ctx.lineTo(d.x + hx, d.y + hy);
+            ctx.strokeStyle = d.col; ctx.globalAlpha = alpha; ctx.lineWidth = 2.6 * dpr;
             ctx.stroke();
         }
         ctx.globalAlpha = 1;
         requestAnimationFrame(step);
     }
-    window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+    window.addEventListener('mousemove', e => { tmx = e.clientX; tmy = e.clientY; });
     window.addEventListener('resize', () => { resize(); make(); });
     document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) requestAnimationFrame(step); });
     resize(); make(); requestAnimationFrame(step);
