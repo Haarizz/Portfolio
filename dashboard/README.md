@@ -1,7 +1,7 @@
 # HAARIZZ — Harikrishnan T Nair · Portfolio
-## Agency / Award
+## Spotify / Linear dashboard
 
-Dark, cinematic agency design — huge serif display type with word-by-word hero reveal, an animated marquee, a custom cursor, hover-driven project rows, and a neon-lime accent. Bold and motion-led.
+An app-like UI with a fixed sidebar, stat cards, animated skill bars, project filters and gradient accents — it looks like the SaaS products you actually build.
 
 Single-file static site (Tailwind CDN + vanilla JS). No build step.
 Deploy on Vercel: Framework Preset **Other**, no build command, output dir `.`.

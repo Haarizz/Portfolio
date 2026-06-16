@@ -45,7 +45,7 @@
 <header class="max-w-6xl mx-auto px-6 pt-16 pb-10 text-center">
     <p class="mono text-sm text-green-400 mb-4 tracking-widest">$ ./select-a-design</p>
     <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">HARIKRISHNAN <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-400">T NAIR</span></h1>
-    <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">Software Engineer @ GEEBU InfoTech — six interactive portfolio designs, same real work. Hover a card to preview, click to open the full experience.</p>
+    <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">Software Engineer @ GEEBU InfoTech — nine interactive portfolio designs, same real work. Hover a card to preview, click to open the full experience.</p>
     <div class="flex flex-wrap justify-center gap-3 mt-6 text-sm">
         <a href="https://github.com/Haarizz" target="_blank" rel="noopener" class="border border-white/15 px-4 py-2 rounded-lg hover:border-green-400 hover:text-green-400 transition-colors">GitHub</a>
         <a href="https://www.linkedin.com/in/harikrishnan-t-nair" target="_blank" rel="noopener" class="border border-white/15 px-4 py-2 rounded-lg hover:border-cyan-400 hover:text-cyan-400 transition-colors">LinkedIn</a>
@@ -84,9 +84,18 @@ const DESIGNS = [
     { n:'05', title:'Build-Log / Git', tag:'Story · IDE', accent:'#cba6f7',
       desc:'Your career as a git commit history inside an IDE window.',
       path:'build-log/index.html' },
-    { n:'06', title:'Studio', tag:'Flagship · Cinematic', accent:'#8b5cf6',
-      desc:'Dark editorial flagship: aurora, sticky-scroll process, app-UI work cards, serif display type.',
+    { n:'06', title:'Agency / Studio', tag:'Cinematic · Lime', accent:'#e8ff59',
+      desc:'Dark agency design: huge serif display, word-reveal hero, marquee, custom cursor, hover rows.',
       path:'studio/index.html', star:true },
+    { n:'07', title:'Apple', tag:'Clean · Premium', accent:'#0071e3',
+      desc:'White, calm, generous space. Sticky-scroll process that pins & cross-fades. Apple product-page feel.',
+      path:'apple/index.html' },
+    { n:'08', title:'Dashboard', tag:'App UI · Gradient', accent:'#7c5cff',
+      desc:'Spotify/Linear-style: sidebar, stat cards, skill bars, filters. Looks like the SaaS you build.',
+      path:'dashboard/index.html' },
+    { n:'09', title:'Editorial', tag:'Magazine · Serif', accent:'#b8431f',
+      desc:'Typography-first magazine: masthead, drop-cap lead, pull-quotes, asymmetric ruled grid.',
+      path:'editorial/index.html' },
 ];
 
 const enc = p => p.split('/').map(encodeURIComponent).join('/');

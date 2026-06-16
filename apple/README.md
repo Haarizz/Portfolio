@@ -1,7 +1,7 @@
 # HAARIZZ — Harikrishnan T Nair · Portfolio
-## Agency / Award
+## Apple product-page
 
-Dark, cinematic agency design — huge serif display type with word-by-word hero reveal, an animated marquee, a custom cursor, hover-driven project rows, and a neon-lime accent. Bold and motion-led.
+Clean white, generous spacing, calm and premium. Sticky-scroll 'Process' section where steps pin and cross-fade as you scroll, big quiet type, blue Apple-style accents.
 
 Single-file static site (Tailwind CDN + vanilla JS). No build step.
 Deploy on Vercel: Framework Preset **Other**, no build command, output dir `.`.

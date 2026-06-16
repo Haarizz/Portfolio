@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Harikrishnan T Nair — Software Engineer | HAARIZZ</title>
+<meta name="description" content="Harikrishnan T Nair (HAARIZZ) — Software Engineer at GEEBU InfoTech. I build production ERP systems with Java, Spring Boot, React & PostgreSQL." />
+<meta name="theme-color" content="#ffffff" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://haarizz.vercel.app/apple/" />
+<meta property="og:title" content="Harikrishnan T Nair — Software Engineer" />
+<meta property="og:description" content="I build production ERP systems. Java · Spring Boot · React · PostgreSQL." />
+<meta property="og:image" content="https://haarizz.vercel.app/assets/og-hub.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23f5f5f7'/%3E%3Ctext x='50' y='70' font-family='-apple-system,Helvetica' font-size='58' font-weight='600' text-anchor='middle' fill='%231d1d1f'%3EH%3C/text%3E%3C/svg%3E" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+tailwind.config = { theme: { extend: {
+    colors: { ink:'#1d1d1f', sub:'#6e6e73', line:'#d2d2d7', soft:'#f5f5f7', blue:'#0071e3' },
+    fontFamily: { sans:['Inter','-apple-system','sans-serif'] }
+}}}
+</script>
+<style>
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',-apple-system,sans-serif; background:#fff; color:#1d1d1f; -webkit-font-smoothing:antialiased; letter-spacing:-0.01em; }
+    .nav-blur { background:rgba(255,255,255,.72); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); }
+    .big { font-weight:600; letter-spacing:-0.03em; line-height:1.05; }
+    .pill { border-radius:9999px; transition:.25s; }
+    .btn-blue { background:#0071e3; color:#fff; } .btn-blue:hover{ background:#0077ed; }
+    .btn-link { color:#0071e3; } .btn-link:hover{ text-decoration:underline; }
+    .reveal { opacity:0; transform:translateY(40px); transition:1s cubic-bezier(.16,1,.3,1); }
+    .reveal.in { opacity:1; transform:none; }
+    /* sticky pin section */
+    .pin-wrap { height:300vh; position:relative; }
+    .pin { position:sticky; top:0; height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .pin-card { transition:opacity .5s, transform .8s cubic-bezier(.16,1,.3,1); }
+    .scale-hero { transition: transform 1.2s cubic-bezier(.16,1,.3,1), opacity 1s; }
+    .grad { background:linear-gradient(180deg,#fff,#f5f5f7); }
+    #bar{ position:fixed; top:0; left:0; height:2px; background:#0071e3; width:0; z-index:60 }
+    @media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none} .pin-card{transition:none} }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<!-- NAV -->
+<nav class="nav-blur fixed top-0 inset-x-0 z-50 border-b border-line/60">
+    <div class="max-w-5xl mx-auto px-6 h-12 flex items-center justify-between text-sm">
+        <a href="#top" class="font-semibold">Harikrishnan T Nair</a>
+        <div class="hidden md:flex items-center gap-8 text-sub" id="navLinks">
+            <a href="#work" class="hover:text-ink transition-colors">Work</a>
+            <a href="#process" class="hover:text-ink transition-colors">Process</a>
+            <a href="#about" class="hover:text-ink transition-colors">About</a>
+            <a href="#contact" class="hover:text-ink transition-colors">Contact</a>
+        </div>
+        <a href="Harikrishnan-T-Nair-Resume.pdf" download class="btn-link font-medium">Resume ›</a>
+    </div>
+</nav>
+
+<main id="top" class="pt-12">
+
+    <!-- HERO -->
+    <section class="grad min-h-[92vh] flex flex-col items-center justify-center text-center px-6">
+        <p class="reveal text-blue text-xl md:text-2xl font-semibold mb-3">Harikrishnan T Nair</p>
+        <h1 class="reveal big text-[44px] sm:text-[72px] md:text-[96px] max-w-4xl">Software that runs<br/>real businesses.</h1>
+        <p class="reveal text-xl md:text-2xl text-sub mt-6 max-w-2xl font-medium">A backend &amp; systems engineer building production ERP platforms — clean, reliable, built to scale.</p>
+        <div class="reveal flex flex-wrap items-center justify-center gap-x-7 gap-y-3 mt-9 text-lg md:text-xl">
+            <a href="#work" class="btn-link font-medium">Explore my work ›</a>
+            <a href="#contact" class="btn-link font-medium">Get in touch ›</a>
+        </div>
+        <div class="reveal mt-16 text-sub"><span class="material-symbols-outlined animate-bounce">expand_more</span></div>
+    </section>
+
+    <!-- STATEMENT -->
+    <section class="py-32 px-6 max-w-4xl mx-auto text-center">
+        <h2 class="reveal big text-3xl md:text-6xl">I don't just write code.<br/><span class="text-sub">I engineer systems that hold up<br/>when the business grows.</span></h2>
+    </section>
+
+    <!-- PINNED FEATURE (sticky scroll) -->
+    <section id="process" class="pin-wrap bg-soft">
+        <div class="pin">
+            <div class="max-w-4xl mx-auto px-6 text-center w-full">
+                <p class="text-blue font-semibold mb-4">How I work</p>
+                <div id="pinCards" class="relative h-[40vh]"></div>
+                <div class="flex justify-center gap-2 mt-8" id="pinDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="py-32 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="reveal big text-4xl md:text-6xl text-center mb-4">Selected work.</h2>
+            <p class="reveal text-xl text-sub text-center mb-16 font-medium">Real platforms. Real businesses.</p>
+            <div id="projects" class="space-y-6"></div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-32 px-6 bg-soft">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="reveal big text-4xl md:text-6xl mb-12">About.</h2>
+            <div class="reveal grid md:grid-cols-3 gap-10">
+                <div class="md:col-span-2 space-y-5 text-lg md:text-xl text-sub leading-relaxed font-medium">
+                    <p>I build the backend engines behind real businesses — the inventory, finance and payroll systems people depend on every day. My path started through a B.Tech in Computer Science and a 120-hour Java program with ICT Academy &amp; the Infosys Foundation.</p>
+                    <p>At <span class="text-ink">GEEBU InfoTech</span> I work on BillBull ERP, a live multi-branch platform. I care about clean architecture and code the next engineer can actually read.</p>
+                </div>
+                <div class="space-y-6">
+                    <div><div class="big text-5xl">8.01</div><div class="text-sub">B.Tech CGPA</div></div>
+                    <div><div class="big text-5xl">387+</div><div class="text-sub">Commits on BillBull</div></div>
+                    <div><div class="big text-5xl">5+</div><div class="text-sub">Projects shipped</div></div>
+                </div>
+            </div>
+            <div class="reveal mt-16 grid sm:grid-cols-2 gap-5">
+                <div class="bg-white rounded-3xl p-7 border border-line">
+                    <h3 class="font-semibold text-lg mb-3">Experience</h3>
+                    <p class="text-ink font-medium">Software Engineer — GEEBU InfoTech <span class="text-sub font-normal">· 2025—now</span></p>
+                    <p class="text-sub text-sm">ERP modules with Spring Boot, React &amp; PostgreSQL.</p>
+                    <p class="text-ink font-medium mt-3">Java Full Stack — Qspyder <span class="text-sub font-normal">· incubation</span></p>
+                </div>
+                <div class="bg-white rounded-3xl p-7 border border-line">
+                    <h3 class="font-semibold text-lg mb-3">Education &amp; certs</h3>
+                    <p class="text-ink font-medium">B.Tech CSE — UKF College <span class="text-sub font-normal">· CGPA 8.01</span></p>
+                    <p class="text-sub text-sm mb-3">APJ Abdul Kalam Technological University</p>
+                    <p class="text-sub text-sm">Java (ICT/Infosys, 120h) · AWS (Computron) · Python (NIT Calicut)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-40 px-6 text-center">
+        <h2 class="reveal big text-5xl md:text-8xl">Let's build<br/>something great.</h2>
+        <p class="reveal text-xl text-sub mt-6 font-medium">Open to full-time roles &amp; serious engineering work.</p>
+        <div class="reveal flex flex-wrap justify-center gap-4 mt-10">
+            <a href="mailto:harikrishnantnair60@gmail.com" class="pill btn-blue px-8 py-4 text-lg font-medium">Email me</a>
+            <a href="https://www.linkedin.com/in/harikrishnan-t-nair" target="_blank" rel="noopener" class="pill px-8 py-4 text-lg font-medium border border-line hover:border-ink transition-colors">LinkedIn</a>
+            <a href="https://github.com/Haarizz" target="_blank" rel="noopener" class="pill px-8 py-4 text-lg font-medium border border-line hover:border-ink transition-colors">GitHub</a>
+        </div>
+        <p class="reveal text-sub mt-10">harikrishnantnair60@gmail.com · +91 97467 57495 · Kollam, India · Remote</p>
+    </section>
+</main>
+
+<footer class="border-t border-line py-8 text-center text-sub text-sm">
+    <p>© 2026 Harikrishnan T Nair · HAARIZZ</p>
+</footer>
+
+<script>
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const PROJECTS = [
+    { name:'BillBull ERP', tag:'Enterprise SaaS', desc:'Production multi-branch ERP — inventory, finance, sales, purchase & payroll. 387+ commits, live.', stack:'Spring Boot · React · PostgreSQL', url:'https://github.com/Haarizz/Billbull_Retail' },
+    { name:'inventory-registries', tag:'Full-Stack', desc:'React (Vite) front end + Spring Boot API for tracking stock and registry records.', stack:'React · Vite · Spring Boot', url:'https://github.com/Haarizz/inventory-registries' },
+    { name:'Blood Cancer Detection', tag:'AI / ML', desc:'Final-year deep-learning pipeline detecting early blood cancer from medical images.', stack:'Python · Deep Learning', url:null },
+    { name:'JobXplore', tag:'Web App', desc:'A job portal matching people to roles by skills, with apply & tracking.', stack:'Java · Full-Stack', url:'https://github.com/Haarizz/JOBPORTAL' },
+    { name:'CareCloud', tag:'Healthcare', desc:'Patient records, appointments & billing for healthcare providers in one system.', stack:'Java · Full-Stack', url:null },
+];
+const STEPS = [
+    { t:'Understand the problem', d:'Map the real business workflow — how stock moves, how money is recorded, who needs what.' },
+    { t:'Design the architecture', d:'Layered Spring Boot services, a clean REST surface, and one consistent data model every module shares.' },
+    { t:'Build & integrate', d:'Backend APIs and React screens, built so the next engineer can read them.' },
+    { t:'Ship & harden', d:'Into a live, multi-branch system real teams run daily — with an eye on data integrity and scale.' },
+];
+
+document.getElementById('projects').innerHTML = PROJECTS.map((p,i)=>`
+    <a ${p.url?`href="${p.url}" target="_blank" rel="noopener"`:''} class="reveal block bg-soft hover:bg-line/40 transition-colors rounded-3xl p-8 md:p-12 group ${p.url?'cursor-pointer':''}">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                <p class="text-blue text-sm font-semibold mb-1">${p.tag}</p>
+                <h3 class="big text-3xl md:text-4xl mb-2">${p.name}</h3>
+                <p class="text-sub text-lg font-medium max-w-xl">${p.desc}</p>
+                <p class="text-sub text-sm mt-3">${p.stack}</p>
+            </div>
+            ${p.url?`<span class="material-symbols-outlined text-3xl text-sub group-hover:text-blue group-hover:translate-x-1 transition-all">arrow_forward</span>`:`<span class="text-sub text-sm">research / private</span>`}
+        </div>
+    </a>`).join('');
+
+// pinned cards (cross-fade through STEPS as you scroll the pin-wrap)
+document.getElementById('pinCards').innerHTML = STEPS.map((s,i)=>`
+    <div class="pin-card absolute inset-0 flex flex-col items-center justify-center" style="opacity:${i===0?1:0}">
+        <p class="text-sub font-semibold mb-3">0${i+1} / 0${STEPS.length}</p>
+        <h3 class="big text-3xl md:text-6xl mb-4">${s.t}</h3>
+        <p class="text-xl text-sub font-medium max-w-2xl">${s.d}</p>
+    </div>`).join('');
+document.getElementById('pinDots').innerHTML = STEPS.map((_,i)=>`<span class="dot w-2 h-2 rounded-full bg-line transition-colors" data-i="${i}"></span>`).join('');
+
+(function(){
+    const wrap=document.querySelector('.pin-wrap'), cards=[...document.querySelectorAll('.pin-card')], dots=[...document.querySelectorAll('.dot')];
+    function upd(){
+        const r=wrap.getBoundingClientRect(), total=wrap.offsetHeight-innerHeight;
+        let p=Math.min(Math.max(-r.top/total,0),0.999);
+        const idx=Math.floor(p*cards.length);
+        cards.forEach((c,i)=>c.style.opacity=i===idx?1:0);
+        dots.forEach((d,i)=>d.style.background=i===idx?'#0071e3':'#d2d2d7');
+    }
+    addEventListener('scroll',upd,{passive:true}); upd();
+})();
+
+(function(){
+    const els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
+    const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
+    els.forEach(e=>io.observe(e));
+})();
+(function(){const bar=document.getElementById('bar');addEventListener('scroll',()=>{const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});})();
+(function(){const links=[...document.querySelectorAll('#navLinks a')],map={};links.forEach(l=>map[l.getAttribute('href').slice(1)]=l);const secs=Object.keys(map).map(id=>document.getElementById(id)).filter(Boolean);if(!secs.length)return;const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('text-ink'));map[e.target.id]?.classList.add('text-ink');}}),{rootMargin:'-45% 0px -50% 0px'});secs.forEach(s=>io.observe(s));})();
+</script>
+</body>
+</html>
