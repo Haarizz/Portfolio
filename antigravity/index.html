@@ -49,11 +49,44 @@ tailwind.config = { theme: { extend: {
     .underline-grow::after { content:''; position:absolute; left:0; bottom:-4px; height:2px; width:0; background:#1f1f1f; transition:width .3s; }
     .underline-grow:hover::after { width:100%; }
     ::-webkit-scrollbar{width:10px} ::-webkit-scrollbar-thumb{background:#dadce0;border-radius:8px}
-    @media (prefers-reduced-motion: reduce){ #field{display:none} .hero-rise{animation:none;opacity:1;transform:none} .reveal{opacity:1;transform:none} .card:hover{transform:none} }
+
+    /* scroll progress (google-colored) */
+    #progress { position:fixed; top:0; left:0; height:3px; width:0%; z-index:60;
+        background:linear-gradient(90deg,#1a73e8,#ea4335,#fbbc04,#34a853); transition:width .1s linear; }
+    /* active nav */
+    nav a.active { color:#1f1f1f; }
+    nav a.active::after { width:100%; }
+    /* magnetic buttons */
+    .magnetic { transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .2s ease, background .2s ease; }
+    /* rotating headline word */
+    .rotator { display:inline-grid; }
+    .rotator > span { grid-area:1/1; opacity:0; transform:translateY(18px); animation: rotword 9s infinite; }
+    .rotator > span:nth-child(1){animation-delay:0s} .rotator > span:nth-child(2){animation-delay:3s} .rotator > span:nth-child(3){animation-delay:6s}
+    @keyframes rotword { 0%,3%{opacity:0;transform:translateY(18px)} 6%,30%{opacity:1;transform:none} 33%,100%{opacity:0;transform:translateY(-18px)} }
+    /* status pill dot */
+    .live-dot { width:8px;height:8px;border-radius:9999px;background:#34a853; box-shadow:0 0 0 0 rgba(52,168,83,.6); animation: ping 2s infinite; }
+    @keyframes ping { 0%{box-shadow:0 0 0 0 rgba(52,168,83,.5)} 70%{box-shadow:0 0 0 8px rgba(52,168,83,0)} 100%{box-shadow:0 0 0 0 rgba(52,168,83,0)} }
+    /* card accent glow on hover */
+    .card { position:relative; }
+    .card::before { content:''; position:absolute; inset:0; border-radius:1rem; padding:1px; opacity:0; transition:opacity .35s;
+        background:linear-gradient(135deg, var(--glow,#1a73e8), transparent 60%);
+        -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; }
+    .card:hover::before { opacity:.7; }
+    /* back to top */
+    #toTop { opacity:0; pointer-events:none; transition:opacity .3s, transform .3s; transform:translateY(10px); }
+    #toTop.show { opacity:1; pointer-events:auto; transform:none; }
+    /* filter chips */
+    .chip { transition:all .2s ease; }
+    .chip.active { background:#1f1f1f; color:#fff; border-color:#1f1f1f; }
+    .proj-item { transition: opacity .4s ease, transform .4s ease; }
+    .proj-item.hide { opacity:0; transform:scale(.94); position:absolute; visibility:hidden; pointer-events:none; }
+
+    @media (prefers-reduced-motion: reduce){ #field{display:none} .hero-rise{animation:none;opacity:1;transform:none} .reveal{opacity:1;transform:none} .card:hover{transform:none} .rotator>span{animation:none} .rotator>span:nth-child(1){opacity:1;transform:none} .rotator>span:nth-child(2),.rotator>span:nth-child(3){display:none} .live-dot{animation:none} }
 </style>
 </head>
 <body>
 
+<div id="progress"></div>
 <canvas id="field"></canvas>
 
 <!-- ===== NAV ===== -->
@@ -63,15 +96,25 @@ tailwind.config = { theme: { extend: {
             <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20 L12 5 L21 20" fill="none" stroke="#1a73e8" stroke-width="2.4" stroke-linejoin="round"/><path d="M7.5 20 L12 12.5 L16.5 20" fill="none" stroke="#ea4335" stroke-width="2.4" stroke-linejoin="round"/></svg>
             <span class="text-lg font-medium">Harikrishnan <span class="text-sub">T Nair</span></span>
         </a>
-        <div class="hidden md:flex items-center gap-8 text-[15px] text-sub">
+        <div class="hidden md:flex items-center gap-8 text-[15px] text-sub" id="navLinks">
             <a href="#work" class="underline-grow hover:text-ink transition-colors">Work</a>
             <a href="#about" class="underline-grow hover:text-ink transition-colors">About</a>
             <a href="#skills" class="underline-grow hover:text-ink transition-colors">Skills</a>
             <a href="#contact" class="underline-grow hover:text-ink transition-colors">Contact</a>
         </div>
-        <a href="Harikrishnan-T-Nair-Resume.pdf" download class="pill btn-dark px-5 py-2 text-sm font-medium flex items-center gap-2">
-            <span class="material-symbols-outlined text-base">download</span> Resume
-        </a>
+        <div class="flex items-center gap-3">
+            <a href="Harikrishnan-T-Nair-Resume.pdf" download class="magnetic pill btn-dark px-5 py-2 text-sm font-medium hidden sm:flex items-center gap-2">
+                <span class="material-symbols-outlined text-base">download</span> Resume
+            </a>
+            <button id="menuBtn" class="md:hidden text-ink" aria-label="Menu"><span class="material-symbols-outlined">menu</span></button>
+        </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-line px-6 py-3 flex-col gap-2 text-sub bg-white/90 backdrop-blur">
+        <a href="#work" class="block py-1">Work</a>
+        <a href="#about" class="block py-1">About</a>
+        <a href="#skills" class="block py-1">Skills</a>
+        <a href="#contact" class="block py-1">Contact</a>
+        <a href="Harikrishnan-T-Nair-Resume.pdf" download class="block py-1 text-gblue font-medium">Download Resume</a>
     </div>
 </nav>
 
@@ -79,25 +122,29 @@ tailwind.config = { theme: { extend: {
 
     <!-- ===== HERO ===== -->
     <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-16">
-        <div class="hero-rise d1 flex items-center gap-2 mb-8">
-            <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20 L12 5 L21 20" fill="none" stroke="#1a73e8" stroke-width="2.4" stroke-linejoin="round"/><path d="M7.5 20 L12 12.5 L16.5 20" fill="none" stroke="#ea4335" stroke-width="2.4" stroke-linejoin="round"/></svg>
-            <span class="text-xl font-medium tracking-tight text-sub">HAARIZZ · Software Engineer</span>
+        <div class="hero-rise d1 inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-line bg-white/70 backdrop-blur text-sm text-sub">
+            <span class="live-dot"></span> Available for full-time roles · GEEBU InfoTech
         </div>
         <h1 class="hero-rise d2 font-sans font-normal tracking-tight leading-[1.05] text-[44px] sm:text-[68px] md:text-[88px] max-w-5xl">
-            Build enterprise systems<br class="hidden sm:block"/> that <span class="text-gblue">scale</span>
+            Build enterprise systems<br class="hidden sm:block"/> that
+            <span class="rotator align-bottom">
+                <span class="text-gblue">scale</span>
+                <span class="text-gred">last</span>
+                <span class="text-ggreen">ship</span>
+            </span>
         </h1>
         <p class="hero-rise d3 text-lg md:text-xl text-sub mt-8 max-w-2xl">
             I'm Harikrishnan — a Software Engineer building production ERP platforms where business logic meets clean, reliable engineering.
         </p>
         <div class="hero-rise d4 flex flex-wrap items-center justify-center gap-4 mt-10">
-            <a href="#work" class="pill btn-dark px-7 py-3.5 text-base font-medium flex items-center gap-2">
+            <a href="#work" class="magnetic pill btn-dark px-7 py-3.5 text-base font-medium flex items-center gap-2">
                 <span class="material-symbols-outlined text-lg">rocket_launch</span> View my work
             </a>
-            <a href="#contact" class="pill btn-ghost px-7 py-3.5 text-base font-medium">Get in touch</a>
+            <a href="#contact" class="magnetic pill btn-ghost px-7 py-3.5 text-base font-medium">Get in touch</a>
         </div>
-        <div class="hero-rise d4 mt-16 flex items-center gap-2 text-sub text-sm animate-bounce">
+        <a href="#work" class="hero-rise d4 mt-16 flex items-center gap-2 text-sub text-sm animate-bounce" aria-label="Scroll down">
             <span class="material-symbols-outlined">keyboard_arrow_down</span>
-        </div>
+        </a>
     </section>
 
     <!-- ===== TRUST / STACK STRIP ===== -->
@@ -111,10 +158,16 @@ tailwind.config = { theme: { extend: {
 
     <!-- ===== WORK ===== -->
     <section id="work" class="max-w-6xl mx-auto px-6 py-24">
-        <div class="reveal mb-14 text-center">
+        <div class="reveal mb-10 text-center">
             <p class="text-gblue font-medium mb-3">Selected work</p>
             <h2 class="font-sans text-4xl md:text-5xl tracking-tight">Systems I've shipped</h2>
             <p class="text-sub mt-4 max-w-xl mx-auto">Real platforms, real businesses — not demos.</p>
+        </div>
+        <div id="filters" class="reveal flex flex-wrap justify-center gap-3 mb-10">
+            <button class="chip active px-4 py-2 rounded-full border border-line text-sm" data-filter="all">All</button>
+            <button class="chip px-4 py-2 rounded-full border border-line text-sm" data-filter="backend">Backend / ERP</button>
+            <button class="chip px-4 py-2 rounded-full border border-line text-sm" data-filter="fullstack">Full-Stack</button>
+            <button class="chip px-4 py-2 rounded-full border border-line text-sm" data-filter="ai">AI / ML</button>
         </div>
         <div id="projects" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </section>
@@ -249,6 +302,10 @@ tailwind.config = { theme: { extend: {
     </div>
 </footer>
 
+<button id="toTop" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform" aria-label="Back to top">
+    <span class="material-symbols-outlined">arrow_upward</span>
+</button>
+
 <script>
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -264,7 +321,8 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
     if (!canvas || reduceMotion) return;
     const ctx = canvas.getContext('2d');
     const COLORS = ['#1a73e8','#ea4335','#fbbc04','#34a853','#9334e6'];
-    const CONFIG = { friction: 0.94, gravity: -0.012, interactionRadius: 150, repel: 0.9 };
+    const isCoarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+    const CONFIG = { friction: 0.92, gravity: -0.010, interactionRadius: isCoarse ? 90 : 160, repel: 0.85, maxSpeed: 6 };
     let w, h, dpr, dashes = [], running = true;
     let mx = -9999, my = -9999;
 
@@ -275,8 +333,9 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
     }
     function spawn() {
         const depth = Math.random() * 0.6 + 0.5;     // 0.5–1.1 → parallax/size
+        const x = Math.random() * w, y = Math.random() * h;
         return {
-            x: Math.random() * w, y: Math.random() * h,
+            x, y, hx: x, hy: y,                       // hx/hy = home position to drift back toward
             vx: (Math.random() - 0.5) * 0.15 * dpr,
             vy: (Math.random() - 0.5) * 0.15 * dpr,
             len: (Math.random() * 6 + 7) * dpr * depth,
@@ -288,7 +347,8 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
         };
     }
     function make() {
-        const count = Math.min(Math.floor(innerWidth * innerHeight / 7000), 220);
+        const div = isCoarse ? 12000 : 7000;
+        const count = Math.min(Math.floor(innerWidth * innerHeight / div), isCoarse ? 90 : 220);
         dashes = Array.from({ length: count }, spawn);
     }
     function step() {
@@ -307,22 +367,27 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
                 d.vx += Math.cos(ang) * push;
                 d.vy += Math.sin(ang) * push;
             }
-            // anti-gravity float + friction
-            d.vy += CONFIG.gravity * dpr * d.depth;
+            // gentle spring back toward home + tiny anti-gravity float + friction
+            d.vx += (d.hx - d.x) * 0.0016;
+            d.vy += (d.hy - d.y) * 0.0016 + CONFIG.gravity * dpr * d.depth * 0.4;
             d.vx *= CONFIG.friction; d.vy *= CONFIG.friction;
+            // cap velocity so a fast cursor doesn't fling dashes off-screen
+            const sp = Math.hypot(d.vx, d.vy), max = CONFIG.maxSpeed * dpr;
+            if (sp > max) { d.vx = d.vx / sp * max; d.vy = d.vy / sp * max; }
             d.x += d.vx; d.y += d.vy;
-            d.rot += d.rotSp;
-            // wrap around edges
+            d.rot += d.rotSp + sp * 0.004;            // spin a touch faster when moving fast
+            // wrap around edges (home also wraps so they don't all clump)
             const m = 30 * dpr;
-            if (d.x < -m) d.x = w + m; else if (d.x > w + m) d.x = -m;
-            if (d.y < -m) d.y = h + m; else if (d.y > h + m) d.y = -m;
-            // draw the dash (a short rounded line, rotated)
+            if (d.x < -m) { d.x = w + m; d.hx = d.x; } else if (d.x > w + m) { d.x = -m; d.hx = d.x; }
+            if (d.y < -m) { d.y = h + m; d.hy = d.y; } else if (d.y > h + m) { d.y = -m; d.hy = d.y; }
+            // brighten dashes near the cursor (soft aura)
+            const near = dist < R ? (1 - dist / R) : 0;
             const hx = Math.cos(d.rot) * d.len * 0.5, hy = Math.sin(d.rot) * d.len * 0.5;
             ctx.beginPath();
             ctx.moveTo(d.x - hx, d.y - hy);
             ctx.lineTo(d.x + hx, d.y + hy);
-            ctx.strokeStyle = d.col; ctx.globalAlpha = d.a * (0.6 + 0.4 * d.depth);
-            ctx.lineWidth = 2.4 * dpr * d.depth;
+            ctx.strokeStyle = d.col; ctx.globalAlpha = Math.min(1, d.a * (0.6 + 0.4 * d.depth) + near * 0.5);
+            ctx.lineWidth = (2.4 + near * 1.4) * dpr * d.depth;
             ctx.stroke();
         }
         ctx.globalAlpha = 1;
@@ -337,22 +402,22 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 
 /* ===== DATA ===== */
 const PROJECTS = [
-    { name:'BillBull ERP', tag:'Enterprise SaaS', dot:'#1a73e8', icon:'inventory_2',
+    { name:'BillBull ERP', tag:'Enterprise SaaS', dot:'#1a73e8', icon:'inventory_2', cat:'backend',
       desc:'Production multi-branch ERP — inventory, finance, sales, purchase & payroll. 387+ commits.',
       stack:['Spring Boot','React','PostgreSQL'], url:'https://github.com/Haarizz/Billbull_Retail' },
-    { name:'inventory-registries', tag:'Full-Stack', dot:'#34a853', icon:'database',
+    { name:'inventory-registries', tag:'Full-Stack', dot:'#34a853', icon:'database', cat:'backend fullstack',
       desc:'Full-stack inventory & registries system — React (Vite) front end + Spring Boot API.',
       stack:['React','Vite','Spring Boot'], url:'https://github.com/Haarizz/inventory-registries' },
-    { name:'Blood Cancer Detection', tag:'AI / ML', dot:'#ea4335', icon:'biotech',
+    { name:'Blood Cancer Detection', tag:'AI / ML', dot:'#ea4335', icon:'biotech', cat:'ai',
       desc:'Final-year deep-learning pipeline detecting early blood cancer from medical images.',
       stack:['Python','Deep Learning'], url:null },
-    { name:'JobXplore', tag:'Web App', dot:'#fbbc04', icon:'work',
+    { name:'JobXplore', tag:'Web App', dot:'#fbbc04', icon:'work', cat:'fullstack',
       desc:'A job portal matching people to roles by skills, with apply & tracking.',
       stack:['Java','Full-Stack'], url:'https://github.com/Haarizz/JOBPORTAL' },
-    { name:'CareCloud', tag:'Healthcare', dot:'#34a853', icon:'health_and_safety',
+    { name:'CareCloud', tag:'Healthcare', dot:'#34a853', icon:'health_and_safety', cat:'fullstack',
       desc:'Healthcare platform for patient records, appointments & billing in one system.',
       stack:['Java','Full-Stack'], url:null },
-    { name:'More on GitHub', tag:'Open source', dot:'#1a73e8', icon:'code',
+    { name:'More on GitHub', tag:'Open source', dot:'#1a73e8', icon:'code', cat:'all backend fullstack ai',
       desc:'Gym management, full-stack experiments and more — all open source.',
       stack:['Java','React'], url:'https://github.com/Haarizz', cta:'Visit GitHub' },
 ];
@@ -367,7 +432,7 @@ const SKILLS = [
 
 /* ===== RENDER PROJECTS ===== */
 document.getElementById('projects').innerHTML = PROJECTS.map(p => `
-    <div class="card reveal bg-white border border-line rounded-2xl p-6 flex flex-col">
+    <div class="card proj-item reveal bg-white border border-line rounded-2xl p-6 flex flex-col" data-cat="${p.cat}" style="--glow:${p.dot}">
         <div class="flex items-center justify-between mb-4">
             <span class="material-symbols-outlined" style="color:${p.dot}">${p.icon}</span>
             <span class="text-xs font-medium px-3 py-1 rounded-full" style="background:${p.dot}14;color:${p.dot}">${p.tag}</span>
@@ -414,6 +479,66 @@ document.getElementById('skills-grid').innerHTML = SKILLS.map(s => `
     };
     const io = new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){ run(e.target); io.unobserve(e.target);} }), { threshold:.6 });
     counters.forEach(c=>io.observe(c));
+})();
+
+/* ===== SCROLL PROGRESS + BACK TO TOP ===== */
+(function () {
+    const bar = document.getElementById('progress'), top = document.getElementById('toTop');
+    function onScroll() {
+        const h = document.documentElement, sc = h.scrollTop / (h.scrollHeight - h.clientHeight);
+        bar.style.width = (sc * 100) + '%';
+        top.classList.toggle('show', h.scrollTop > 600);
+    }
+    window.addEventListener('scroll', onScroll, { passive:true });
+    top.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+    onScroll();
+})();
+
+/* ===== ACTIVE NAV HIGHLIGHT ===== */
+(function () {
+    const links = [...document.querySelectorAll('#navLinks a')];
+    const map = {}; links.forEach(l => map[l.getAttribute('href').slice(1)] = l);
+    const sections = Object.keys(map).map(id => document.getElementById(id)).filter(Boolean);
+    if (!('IntersectionObserver' in window) || !sections.length) return;
+    const io = new IntersectionObserver((es)=>es.forEach(e=>{
+        if (e.isIntersecting) { links.forEach(l=>l.classList.remove('active')); map[e.target.id]?.classList.add('active'); }
+    }), { rootMargin:'-45% 0px -50% 0px' });
+    sections.forEach(s=>io.observe(s));
+})();
+
+/* ===== MAGNETIC BUTTONS ===== */
+(function () {
+    if (reduceMotion || window.matchMedia('(hover: none)').matches) return;
+    document.querySelectorAll('.magnetic').forEach(el => {
+        el.addEventListener('mousemove', e => {
+            const r = el.getBoundingClientRect();
+            const x = e.clientX - r.left - r.width/2, y = e.clientY - r.top - r.height/2;
+            el.style.transform = `translate(${x*0.3}px, ${y*0.3}px)`;
+        });
+        el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+    });
+})();
+
+/* ===== PROJECT FILTERS ===== */
+(function () {
+    const chips = document.querySelectorAll('.chip'), items = document.querySelectorAll('.proj-item');
+    if (!chips.length) return;
+    chips.forEach(chip => chip.addEventListener('click', () => {
+        chips.forEach(c=>c.classList.remove('active')); chip.classList.add('active');
+        const f = chip.dataset.filter;
+        items.forEach(it => {
+            const cats = (it.dataset.cat||'').split(' ');
+            it.classList.toggle('hide', !(f==='all' || cats.includes(f)));
+        });
+    }));
+})();
+
+/* ===== MOBILE MENU ===== */
+(function () {
+    const btn = document.getElementById('menuBtn'), menu = document.getElementById('mobileMenu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', () => { menu.classList.toggle('hidden'); menu.classList.toggle('flex'); });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.add('hidden'); menu.classList.remove('flex'); }));
 })();
 </script>
 </body>
