@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Harikrishnan T Nair — Software Engineer | HAARIZZ</title>
+<meta name="description" content="Harikrishnan T Nair (HAARIZZ) — Software Engineer at GEEBU InfoTech. I build enterprise systems that scale with Java, Spring Boot, React & PostgreSQL." />
+<meta name="author" content="Harikrishnan T Nair" />
+<meta name="theme-color" content="#ffffff" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://haarizz.vercel.app/antigravity/" />
+<meta property="og:title" content="Harikrishnan T Nair — Software Engineer" />
+<meta property="og:description" content="Build enterprise systems that scale. Java · Spring Boot · React · PostgreSQL." />
+<meta property="og:image" content="https://haarizz.vercel.app/assets/og-hub.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://haarizz.vercel.app/assets/og-hub.svg" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23ffffff'/%3E%3Ctext x='50' y='70' font-family='Google Sans, Arial' font-size='58' font-weight='500' text-anchor='middle' fill='%231a73e8'%3EH%3C/text%3E%3C/svg%3E" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+tailwind.config = { theme: { extend: {
+    colors: { ink:'#1f1f1f', sub:'#5f6368', line:'#e8eaed', gblue:'#1a73e8', gred:'#ea4335', gyellow:'#fbbc04', ggreen:'#34a853', soft:'#f8f9fa' },
+    fontFamily: { sans:['Google Sans','Inter','sans-serif'], body:['Inter','sans-serif'] }
+}}}
+</script>
+<style>
+    html { scroll-behavior: smooth; }
+    body { font-family:'Google Sans','Inter',sans-serif; background:#ffffff; color:#1f1f1f; -webkit-font-smoothing:antialiased; }
+    #field { position:fixed; inset:0; z-index:0; pointer-events:none; }
+    .nav-blur { background:rgba(255,255,255,0.8); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+    /* pill buttons */
+    .pill { border-radius:9999px; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+    .pill:hover { transform: translateY(-2px); }
+    .btn-dark { background:#1f1f1f; color:#fff; }
+    .btn-dark:hover { box-shadow:0 8px 24px rgba(0,0,0,.18); }
+    .btn-ghost { background:#fff; color:#1f1f1f; border:1px solid #dadce0; }
+    .btn-ghost:hover { box-shadow:0 8px 24px rgba(0,0,0,.08); border-color:#1f1f1f; }
+    /* hero entrance */
+    .hero-rise { opacity:0; transform: translateY(24px); animation: rise 1s cubic-bezier(.2,.8,.2,1) forwards; }
+    .d1{animation-delay:.1s} .d2{animation-delay:.25s} .d3{animation-delay:.4s} .d4{animation-delay:.55s}
+    @keyframes rise { to { opacity:1; transform:none; } }
+    .reveal { opacity:0; transform: translateY(28px); transition: .7s cubic-bezier(.2,.8,.2,1); }
+    .reveal.in { opacity:1; transform:none; }
+    .card { transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease; }
+    .card:hover { transform: translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,.08); border-color:#dadce0; }
+    .grad-line { background:linear-gradient(90deg,#1a73e8,#ea4335,#fbbc04,#34a853); }
+    .underline-grow { position:relative; }
+    .underline-grow::after { content:''; position:absolute; left:0; bottom:-4px; height:2px; width:0; background:#1f1f1f; transition:width .3s; }
+    .underline-grow:hover::after { width:100%; }
+    ::-webkit-scrollbar{width:10px} ::-webkit-scrollbar-thumb{background:#dadce0;border-radius:8px}
+    @media (prefers-reduced-motion: reduce){ #field{display:none} .hero-rise{animation:none;opacity:1;transform:none} .reveal{opacity:1;transform:none} .card:hover{transform:none} }
+</style>
+</head>
+<body>
+
+<canvas id="field"></canvas>
+
+<!-- ===== NAV ===== -->
+<nav class="nav-blur fixed top-0 left-0 right-0 z-50 border-b border-line">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="#home" class="flex items-center gap-2">
+            <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20 L12 5 L21 20" fill="none" stroke="#1a73e8" stroke-width="2.4" stroke-linejoin="round"/><path d="M7.5 20 L12 12.5 L16.5 20" fill="none" stroke="#ea4335" stroke-width="2.4" stroke-linejoin="round"/></svg>
+            <span class="text-lg font-medium">Harikrishnan <span class="text-sub">T Nair</span></span>
+        </a>
+        <div class="hidden md:flex items-center gap-8 text-[15px] text-sub">
+            <a href="#work" class="underline-grow hover:text-ink transition-colors">Work</a>
+            <a href="#about" class="underline-grow hover:text-ink transition-colors">About</a>
+            <a href="#skills" class="underline-grow hover:text-ink transition-colors">Skills</a>
+            <a href="#contact" class="underline-grow hover:text-ink transition-colors">Contact</a>
+        </div>
+        <a href="Harikrishnan-T-Nair-Resume.pdf" download class="pill btn-dark px-5 py-2 text-sm font-medium flex items-center gap-2">
+            <span class="material-symbols-outlined text-base">download</span> Resume
+        </a>
+    </div>
+</nav>
+
+<main class="relative z-10">
+
+    <!-- ===== HERO ===== -->
+    <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-16">
+        <div class="hero-rise d1 flex items-center gap-2 mb-8">
+            <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20 L12 5 L21 20" fill="none" stroke="#1a73e8" stroke-width="2.4" stroke-linejoin="round"/><path d="M7.5 20 L12 12.5 L16.5 20" fill="none" stroke="#ea4335" stroke-width="2.4" stroke-linejoin="round"/></svg>
+            <span class="text-xl font-medium tracking-tight text-sub">HAARIZZ · Software Engineer</span>
+        </div>
+        <h1 class="hero-rise d2 font-sans font-normal tracking-tight leading-[1.05] text-[44px] sm:text-[68px] md:text-[88px] max-w-5xl">
+            Build enterprise systems<br class="hidden sm:block"/> that <span class="text-gblue">scale</span>
+        </h1>
+        <p class="hero-rise d3 text-lg md:text-xl text-sub mt-8 max-w-2xl">
+            I'm Harikrishnan — a Software Engineer building production ERP platforms where business logic meets clean, reliable engineering.
+        </p>
+        <div class="hero-rise d4 flex flex-wrap items-center justify-center gap-4 mt-10">
+            <a href="#work" class="pill btn-dark px-7 py-3.5 text-base font-medium flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg">rocket_launch</span> View my work
+            </a>
+            <a href="#contact" class="pill btn-ghost px-7 py-3.5 text-base font-medium">Get in touch</a>
+        </div>
+        <div class="hero-rise d4 mt-16 flex items-center gap-2 text-sub text-sm animate-bounce">
+            <span class="material-symbols-outlined">keyboard_arrow_down</span>
+        </div>
+    </section>
+
+    <!-- ===== TRUST / STACK STRIP ===== -->
+    <section class="border-y border-line bg-soft/60">
+        <div class="max-w-6xl mx-auto px-6 py-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-sub text-sm font-medium">
+            <span class="text-ink">Built with</span>
+            <span>Java</span><span>·</span><span>Spring Boot</span><span>·</span><span>React</span><span>·</span>
+            <span>PostgreSQL</span><span>·</span><span>REST APIs</span><span>·</span><span>AWS</span>
+        </div>
+    </section>
+
+    <!-- ===== WORK ===== -->
+    <section id="work" class="max-w-6xl mx-auto px-6 py-24">
+        <div class="reveal mb-14 text-center">
+            <p class="text-gblue font-medium mb-3">Selected work</p>
+            <h2 class="font-sans text-4xl md:text-5xl tracking-tight">Systems I've shipped</h2>
+            <p class="text-sub mt-4 max-w-xl mx-auto">Real platforms, real businesses — not demos.</p>
+        </div>
+        <div id="projects" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- ===== CASE STUDY ===== -->
+    <section class="bg-soft border-y border-line">
+        <div class="max-w-6xl mx-auto px-6 py-24">
+            <div class="reveal grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-gblue font-medium mb-3">Case study · [live]</p>
+                    <h2 class="font-sans text-4xl md:text-5xl tracking-tight mb-5">BillBull ERP</h2>
+                    <p class="text-sub text-lg leading-relaxed mb-6">A production multi-branch retail ERP unifying inventory, financial accounting, sales, purchase and payroll on one consistent data model — the system real teams run their operations on. 387+ commits and counting.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-ggreen">check_circle</span> Spring Boot REST APIs · layered service design</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-ggreen">check_circle</span> Role-based access · branch-level isolation</li>
+                        <li class="flex items-center gap-3"><span class="material-symbols-outlined text-ggreen">check_circle</span> Automated accounting ledgers + payroll</li>
+                    </ul>
+                    <a href="https://github.com/Haarizz/Billbull_Retail" target="_blank" rel="noopener" class="pill btn-dark px-6 py-3 text-sm font-medium inline-flex items-center gap-2">
+                        View repository <span class="material-symbols-outlined text-base">open_in_new</span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="card bg-white border border-line rounded-2xl p-6 text-center">
+                        <div class="text-4xl font-sans text-gblue count" data-count="6" data-suffix="+">6+</div>
+                        <div class="text-sub text-sm mt-1">ERP modules</div>
+                    </div>
+                    <div class="card bg-white border border-line rounded-2xl p-6 text-center">
+                        <div class="text-4xl font-sans text-gred count" data-count="387" data-suffix="+">387+</div>
+                        <div class="text-sub text-sm mt-1">Commits</div>
+                    </div>
+                    <div class="card bg-white border border-line rounded-2xl p-6 text-center">
+                        <div class="text-4xl font-sans text-gyellow">Multi</div>
+                        <div class="text-sub text-sm mt-1">Branch / outlet</div>
+                    </div>
+                    <div class="card bg-white border border-line rounded-2xl p-6 text-center">
+                        <div class="text-4xl font-sans text-ggreen">Live</div>
+                        <div class="text-sub text-sm mt-1">In production</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="max-w-6xl mx-auto px-6 py-24">
+        <div class="reveal grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+                <p class="text-gblue font-medium mb-3">About</p>
+                <h2 class="font-sans text-4xl md:text-5xl tracking-tight leading-tight">Engineering for the<br/>business that grows</h2>
+            </div>
+            <div class="space-y-5 text-sub text-lg leading-relaxed">
+                <p>I build the backend engines behind real businesses — the inventory, finance and payroll systems people depend on every day. My path started with a fascination for solving real problems with code, sharpened through a B.Tech in Computer Science and a 120-hour Java program with ICT Academy &amp; the Infosys Foundation.</p>
+                <p>At <span class="text-ink font-medium">GEEBU InfoTech</span> I work on BillBull ERP, a live multi-branch platform. I care about clean architecture and code the next engineer can actually read — because architecture today determines scalability tomorrow.</p>
+                <div class="flex flex-wrap gap-6 pt-4">
+                    <div><div class="text-3xl font-sans text-ink count" data-count="8" data-suffix=".01">8.01</div><div class="text-sm">B.Tech CGPA</div></div>
+                    <div><div class="text-3xl font-sans text-ink count" data-count="5" data-suffix="+">5+</div><div class="text-sm">Projects built</div></div>
+                    <div><div class="text-3xl font-sans text-ink count" data-count="120" data-suffix="h">120h</div><div class="text-sm">Java training</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="bg-soft border-y border-line">
+        <div class="max-w-6xl mx-auto px-6 py-24">
+            <div class="reveal text-center mb-14">
+                <p class="text-gblue font-medium mb-3">Capabilities</p>
+                <h2 class="font-sans text-4xl md:text-5xl tracking-tight">The stack I build with</h2>
+            </div>
+            <div id="skills-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE + EDUCATION ===== -->
+    <section class="max-w-6xl mx-auto px-6 py-24">
+        <div class="grid lg:grid-cols-2 gap-12">
+            <div class="reveal">
+                <h2 class="font-sans text-3xl tracking-tight mb-8">Experience</h2>
+                <div class="space-y-6">
+                    <div class="border-l-2 border-gblue pl-5">
+                        <div class="flex justify-between flex-wrap"><h3 class="font-medium text-lg">Software Engineer</h3><span class="text-sub text-sm">2025 — Present</span></div>
+                        <p class="text-gblue text-sm mb-1">GEEBU InfoTech · Remote</p>
+                        <p class="text-sub">ERP modules — inventory, sales, purchase, accounting, payroll — with Spring Boot, React &amp; PostgreSQL on a live multi-branch SaaS.</p>
+                    </div>
+                    <div class="border-l-2 border-line pl-5">
+                        <div class="flex justify-between flex-wrap"><h3 class="font-medium text-lg">Java Full Stack Developer</h3><span class="text-sub text-sm">Incubation</span></div>
+                        <p class="text-sub text-sm mb-1">Qspyder · Kochi</p>
+                        <p class="text-sub">Full-stack Java training — Spring Boot, Hibernate, MySQL + front-end fundamentals.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal">
+                <h2 class="font-sans text-3xl tracking-tight mb-8">Education &amp; Certs</h2>
+                <div class="space-y-6">
+                    <div class="card bg-white border border-line rounded-2xl p-6">
+                        <div class="flex justify-between flex-wrap"><h3 class="font-medium text-lg">B.Tech — Computer Science</h3><span class="text-sub text-sm">2021 — 2025</span></div>
+                        <p class="text-sub text-sm">UKF College of Engineering &amp; Technology · APJ Abdul Kalam Technological University · CGPA 8.01</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 rounded-full border border-line text-sm">Java Dev — ICT/Infosys (120h)</span>
+                        <span class="px-4 py-2 rounded-full border border-line text-sm">AWS — Computron</span>
+                        <span class="px-4 py-2 rounded-full border border-line text-sm">Python — NIT Calicut</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="relative">
+        <div class="max-w-4xl mx-auto px-6 py-28 text-center">
+            <div class="reveal">
+                <h2 class="font-sans text-5xl md:text-7xl tracking-tight leading-[1.05]">Let's build<br/>something that <span class="text-gblue">lasts</span></h2>
+                <p class="text-sub text-lg mt-6 max-w-xl mx-auto">Open to full-time roles &amp; serious engineering work. I respond fast.</p>
+                <div class="flex flex-wrap items-center justify-center gap-4 mt-10">
+                    <a href="mailto:harikrishnantnair60@gmail.com" class="pill btn-dark px-7 py-3.5 text-base font-medium flex items-center gap-2"><span class="material-symbols-outlined text-lg">mail</span> Email me</a>
+                    <a href="https://www.linkedin.com/in/harikrishnan-t-nair" target="_blank" rel="noopener" class="pill btn-ghost px-7 py-3.5 text-base font-medium">LinkedIn</a>
+                    <a href="https://github.com/Haarizz" target="_blank" rel="noopener" class="pill btn-ghost px-7 py-3.5 text-base font-medium">GitHub</a>
+                </div>
+                <p class="text-sub text-sm mt-10">harikrishnantnair60@gmail.com · +91 97467 57495 · Kollam, India · Remote</p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="relative z-10 border-t border-line">
+    <div class="grad-line h-1 w-full"></div>
+    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sub text-sm">
+        <span>© 2026 Harikrishnan T Nair</span>
+        <span>Designed &amp; built with clean code</span>
+    </div>
+</footer>
+
+<script>
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ===== ANIMATED DASH FIELD (Antigravity-style) ===== */
+(function () {
+    const canvas = document.getElementById('field');
+    if (!canvas || reduceMotion) return;
+    const ctx = canvas.getContext('2d');
+    const COLORS = ['#1a73e8','#ea4335','#fbbc04','#34a853'];
+    let w, h, dpr, dashes = [], running = true, mouse = { x:-9999, y:-9999 };
+
+    function resize() {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = canvas.width = innerWidth * dpr; h = canvas.height = innerHeight * dpr;
+        canvas.style.width = innerWidth + 'px'; canvas.style.height = innerHeight + 'px';
+    }
+    function make() {
+        const count = Math.min(Math.floor(innerWidth * innerHeight / 9000), 160);
+        dashes = Array.from({ length: count }, () => spawn(true));
+    }
+    function spawn(anywhere) {
+        return {
+            x: Math.random() * w,
+            y: anywhere ? Math.random() * h : h + 20 * dpr,
+            len: (Math.random() * 10 + 6) * dpr,
+            ang: (-Math.PI/2) + (Math.random() - 0.5) * 0.5,  // mostly upward, slight spread
+            sp: (Math.random() * 0.5 + 0.25) * dpr,
+            col: COLORS[(Math.random() * COLORS.length) | 0],
+            wob: Math.random() * Math.PI * 2,
+            wobSp: Math.random() * 0.02 + 0.005,
+            a: Math.random() * 0.5 + 0.35,
+        };
+    }
+    function step() {
+        if (!running) return;
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < dashes.length; i++) {
+            const d = dashes[i];
+            d.wob += d.wobSp;
+            const driftX = Math.cos(d.wob) * 0.4 * dpr;
+            d.x += Math.cos(d.ang) * d.sp + driftX;
+            d.y += Math.sin(d.ang) * d.sp;
+            // gentle mouse repulsion
+            const mdx = d.x - mouse.x * dpr, mdy = d.y - mouse.y * dpr;
+            const dist = Math.hypot(mdx, mdy);
+            if (dist < 120 * dpr) { d.x += (mdx / dist) * 1.2 * dpr; d.y += (mdy / dist) * 1.2 * dpr; }
+            if (d.y < -20 * dpr || d.x < -20*dpr || d.x > w + 20*dpr) dashes[i] = spawn(false);
+            // draw a small rounded dash
+            const ex = d.x + Math.cos(d.ang) * d.len, ey = d.y + Math.sin(d.ang) * d.len;
+            ctx.beginPath(); ctx.moveTo(d.x, d.y); ctx.lineTo(ex, ey);
+            ctx.strokeStyle = d.col; ctx.globalAlpha = d.a; ctx.lineWidth = 2.4 * dpr; ctx.lineCap = 'round';
+            ctx.stroke();
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(step);
+    }
+    window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+    window.addEventListener('resize', () => { resize(); make(); });
+    document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) requestAnimationFrame(step); });
+    resize(); make(); requestAnimationFrame(step);
+})();
+
+/* ===== DATA ===== */
+const PROJECTS = [
+    { name:'BillBull ERP', tag:'Enterprise SaaS', dot:'#1a73e8', icon:'inventory_2',
+      desc:'Production multi-branch ERP — inventory, finance, sales, purchase & payroll. 387+ commits.',
+      stack:['Spring Boot','React','PostgreSQL'], url:'https://github.com/Haarizz/Billbull_Retail' },
+    { name:'inventory-registries', tag:'Full-Stack', dot:'#34a853', icon:'database',
+      desc:'Full-stack inventory & registries system — React (Vite) front end + Spring Boot API.',
+      stack:['React','Vite','Spring Boot'], url:'https://github.com/Haarizz/inventory-registries' },
+    { name:'Blood Cancer Detection', tag:'AI / ML', dot:'#ea4335', icon:'biotech',
+      desc:'Final-year deep-learning pipeline detecting early blood cancer from medical images.',
+      stack:['Python','Deep Learning'], url:null },
+    { name:'JobXplore', tag:'Web App', dot:'#fbbc04', icon:'work',
+      desc:'A job portal matching people to roles by skills, with apply & tracking.',
+      stack:['Java','Full-Stack'], url:'https://github.com/Haarizz/JOBPORTAL' },
+    { name:'CareCloud', tag:'Healthcare', dot:'#34a853', icon:'health_and_safety',
+      desc:'Healthcare platform for patient records, appointments & billing in one system.',
+      stack:['Java','Full-Stack'], url:null },
+    { name:'More on GitHub', tag:'Open source', dot:'#1a73e8', icon:'code',
+      desc:'Gym management, full-stack experiments and more — all open source.',
+      stack:['Java','React'], url:'https://github.com/Haarizz', cta:'Visit GitHub' },
+];
+const SKILLS = [
+    { t:'Backend', icon:'dns', items:['Java','Spring Boot','Hibernate','REST API','Servlets'] },
+    { t:'Frontend', icon:'monitor', items:['React','Vite','JavaScript','TypeScript','Tailwind'] },
+    { t:'Database', icon:'database', items:['PostgreSQL','MySQL','DB Design','Query Optimization'] },
+    { t:'Languages', icon:'terminal', items:['Java','Python','C','SQL'] },
+    { t:'Tools & Cloud', icon:'build', items:['Git','GitHub','AWS','Linux'] },
+    { t:'ERP & Domain', icon:'corporate_fare', items:['Inventory','Sales','Purchase','Accounting','Payroll'] },
+];
+
+/* ===== RENDER PROJECTS ===== */
+document.getElementById('projects').innerHTML = PROJECTS.map(p => `
+    <div class="card reveal bg-white border border-line rounded-2xl p-6 flex flex-col">
+        <div class="flex items-center justify-between mb-4">
+            <span class="material-symbols-outlined" style="color:${p.dot}">${p.icon}</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-full" style="background:${p.dot}14;color:${p.dot}">${p.tag}</span>
+        </div>
+        <h3 class="text-xl font-medium mb-2">${p.name}</h3>
+        <p class="text-sub text-sm leading-relaxed mb-4 flex-1">${p.desc}</p>
+        <div class="flex flex-wrap gap-2 mb-4">${p.stack.map(s=>`<span class="text-xs px-2.5 py-1 rounded-full bg-soft text-sub">${s}</span>`).join('')}</div>
+        ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener" class="text-sm font-medium text-ink inline-flex items-center gap-1 hover:gap-2 transition-all">${p.cta||'View repository'} <span class="material-symbols-outlined text-base">arrow_forward</span></a>` : `<span class="text-sm text-sub">Research / private</span>`}
+    </div>`).join('');
+
+/* ===== RENDER SKILLS ===== */
+document.getElementById('skills-grid').innerHTML = SKILLS.map(s => `
+    <div class="card reveal bg-white border border-line rounded-2xl p-6">
+        <div class="flex items-center gap-2 mb-4"><span class="material-symbols-outlined text-gblue">${s.icon}</span><h3 class="font-medium text-lg">${s.t}</h3></div>
+        <div class="flex flex-wrap gap-2">${s.items.map(i=>`<span class="text-sm px-3 py-1.5 rounded-full bg-soft text-ink">${i}</span>`).join('')}</div>
+    </div>`).join('');
+
+/* ===== REVEAL ON SCROLL (staggered) ===== */
+(function () {
+    const els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(e=>e.classList.add('in')); return; }
+    const io = new IntersectionObserver((entries)=>{
+        entries.forEach((en)=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold:.12 });
+    // stagger cards within grids
+    document.querySelectorAll('#projects .reveal, #skills-grid .reveal').forEach((el,i)=>el.style.transitionDelay=(i%3*80)+'ms');
+    els.forEach(e=>io.observe(e));
+})();
+
+/* ===== ANIMATED COUNTERS ===== */
+(function () {
+    const counters = document.querySelectorAll('.count');
+    if (!counters.length || reduceMotion || !('IntersectionObserver' in window)) return;
+    const run = (el) => {
+        const target = parseFloat(el.dataset.count) || 0;
+        const suffix = el.dataset.suffix || '';
+        const decimals = (el.dataset.count.split('.')[1] || '').length;
+        const dur = 1100, start = performance.now();
+        (function tick(now){
+            const p = Math.min((now - start) / dur, 1), eased = 1 - Math.pow(1 - p, 3), val = target * eased;
+            el.textContent = (decimals ? val.toFixed(decimals) : Math.round(val)) + (p === 1 ? suffix : '');
+            if (p < 1) requestAnimationFrame(tick);
+        })(performance.now());
+    };
+    const io = new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){ run(e.target); io.unobserve(e.target);} }), { threshold:.6 });
+    counters.forEach(c=>io.observe(c));
+})();
+</script>
+</body>
+</html>
