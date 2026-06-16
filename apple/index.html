@@ -49,10 +49,11 @@ tailwind.config = { theme: { extend: {
 <nav class="nav-blur fixed top-0 inset-x-0 z-50 border-b border-line/60">
     <div class="max-w-5xl mx-auto px-6 h-12 flex items-center justify-between text-sm">
         <a href="#top" class="font-semibold">Harikrishnan T Nair</a>
-        <div class="hidden md:flex items-center gap-8 text-sub" id="navLinks">
+        <div class="hidden md:flex items-center gap-7 text-sub" id="navLinks">
             <a href="#work" class="hover:text-ink transition-colors">Work</a>
-            <a href="#process" class="hover:text-ink transition-colors">Process</a>
+            <a href="#case" class="hover:text-ink transition-colors">Case</a>
             <a href="#about" class="hover:text-ink transition-colors">About</a>
+            <a href="#skills" class="hover:text-ink transition-colors">Skills</a>
             <a href="#contact" class="hover:text-ink transition-colors">Contact</a>
         </div>
         <a href="Harikrishnan-T-Nair-Resume.pdf" download class="btn-link font-medium">Resume ›</a>
@@ -98,6 +99,48 @@ tailwind.config = { theme: { extend: {
         </div>
     </section>
 
+    <!-- STATS BAND -->
+    <section class="py-20 px-6 bg-soft">
+        <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="reveal"><div class="big text-5xl md:text-6xl count" data-count="8" data-suffix=".01">8.01</div><div class="text-sub mt-2">B.Tech CGPA</div></div>
+            <div class="reveal"><div class="big text-5xl md:text-6xl count" data-count="387" data-suffix="+">387+</div><div class="text-sub mt-2">Commits · BillBull</div></div>
+            <div class="reveal"><div class="big text-5xl md:text-6xl count" data-count="6" data-suffix="+">6+</div><div class="text-sub mt-2">ERP modules</div></div>
+            <div class="reveal"><div class="big text-5xl md:text-6xl count" data-count="5" data-suffix="+">5+</div><div class="text-sub mt-2">Projects shipped</div></div>
+        </div>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section id="case" class="py-32 px-6">
+        <div class="max-w-5xl mx-auto">
+            <p class="reveal text-blue font-semibold text-center mb-3">Case study</p>
+            <h2 class="reveal big text-4xl md:text-6xl text-center mb-4">BillBull ERP.</h2>
+            <p class="reveal text-xl text-sub text-center max-w-2xl mx-auto mb-16 font-medium">A production multi-branch ERP unifying inventory, finance, sales, purchase and payroll on one data model.</p>
+            <div class="grid md:grid-cols-3 gap-5">
+                <div class="reveal bg-soft rounded-3xl p-7"><div class="w-12 h-12 rounded-2xl bg-blue/10 flex items-center justify-center mb-4"><span class="material-symbols-outlined text-blue">dns</span></div><h3 class="font-semibold text-lg mb-2">Backend</h3><p class="text-sub">Spring Boot REST APIs, layered service design, role-based access and a relational data model.</p></div>
+                <div class="reveal bg-soft rounded-3xl p-7"><div class="w-12 h-12 rounded-2xl bg-blue/10 flex items-center justify-center mb-4"><span class="material-symbols-outlined text-blue">monitor</span></div><h3 class="font-semibold text-lg mb-2">Frontend</h3><p class="text-sub">React dashboards in JavaScript &amp; TypeScript — module-driven and branch-aware.</p></div>
+                <div class="reveal bg-soft rounded-3xl p-7"><div class="w-12 h-12 rounded-2xl bg-blue/10 flex items-center justify-center mb-4"><span class="material-symbols-outlined text-blue">account_balance</span></div><h3 class="font-semibold text-lg mb-2">Financial flow</h3><p class="text-sub">Sales &amp; purchase ledgers, automated accounting, payroll, multi-branch consolidation.</p></div>
+            </div>
+            <div class="reveal bg-soft rounded-3xl p-8 md:p-10 mt-5">
+                <p class="text-xl md:text-2xl font-medium text-ink">My role &amp; impact</p>
+                <p class="text-sub text-lg mt-3 max-w-3xl">As a Software Engineer on the platform, I build and maintain ERP modules end-to-end — from Spring Boot APIs and data modelling to the React screens teams use daily — focused on data integrity, clean boundaries and reliable financial flows in a live system real businesses depend on.</p>
+                <a href="https://github.com/Haarizz/Billbull_Retail" target="_blank" rel="noopener" class="btn-link font-medium mt-5 inline-block">View repository ›</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-32 px-6 bg-soft">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="reveal big text-4xl md:text-6xl text-center mb-16">What I do.</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="reveal bg-white rounded-3xl p-7 border border-line"><span class="material-symbols-outlined text-blue text-3xl">architecture</span><h3 class="font-semibold text-lg mt-3 mb-1">Architecture</h3><p class="text-sub text-sm">Scalable, secure, maintainable systems from the data model up.</p></div>
+                <div class="reveal bg-white rounded-3xl p-7 border border-line"><span class="material-symbols-outlined text-blue text-3xl">code</span><h3 class="font-semibold text-lg mt-3 mb-1">Backend Dev</h3><p class="text-sub text-sm">Robust Spring Boot services &amp; clean REST APIs on PostgreSQL.</p></div>
+                <div class="reveal bg-white rounded-3xl p-7 border border-line"><span class="material-symbols-outlined text-blue text-3xl">database</span><h3 class="font-semibold text-lg mt-3 mb-1">Database Design</h3><p class="text-sub text-sm">Consistent relational models, query optimization, data integrity.</p></div>
+                <div class="reveal bg-white rounded-3xl p-7 border border-line"><span class="material-symbols-outlined text-blue text-3xl">speed</span><h3 class="font-semibold text-lg mt-3 mb-1">Optimization</h3><p class="text-sub text-sm">Performance, reliability and scale as the business grows.</p></div>
+            </div>
+        </div>
+    </section>
+
     <!-- ABOUT -->
     <section id="about" class="py-32 px-6 bg-soft">
         <div class="max-w-4xl mx-auto">
@@ -124,9 +167,39 @@ tailwind.config = { theme: { extend: {
                     <h3 class="font-semibold text-lg mb-3">Education &amp; certs</h3>
                     <p class="text-ink font-medium">B.Tech CSE — UKF College <span class="text-sub font-normal">· CGPA 8.01</span></p>
                     <p class="text-sub text-sm mb-3">APJ Abdul Kalam Technological University</p>
-                    <p class="text-sub text-sm">Java (ICT/Infosys, 120h) · AWS (Computron) · Python (NIT Calicut)</p>
+                    <p class="text-ink font-medium text-sm">Java Software Developer <span class="text-sub font-normal">— ICT/Infosys · 120h</span></p>
+                    <p class="text-sub text-xs mb-2">Servlets, Spring Boot, Hibernate, MySQL</p>
+                    <p class="text-ink font-medium text-sm">AWS Cloud Training <span class="text-sub font-normal">— Computron</span></p>
+                    <p class="text-ink font-medium text-sm mt-2">Python Workshop <span class="text-sub font-normal">— NIT Calicut</span></p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-32 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="reveal big text-4xl md:text-6xl text-center mb-16">The toolkit.</h2>
+            <div id="skills-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12"></div>
+            <p class="reveal text-center text-sub mb-5 font-medium">Technologies I work with</p>
+            <div id="stack-grid" class="reveal flex flex-wrap justify-center gap-3"></div>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline" class="py-32 px-6 bg-soft">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="reveal big text-4xl md:text-6xl text-center mb-16">The journey.</h2>
+            <div id="timeline-list" class="relative border-l-2 border-line pl-8 space-y-10"></div>
+        </div>
+    </section>
+
+    <!-- STATEMENT + FAQ -->
+    <section id="faq" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <p class="reveal big text-3xl md:text-5xl text-center leading-tight">"I'd rather ship a system that's boring and bulletproof than one that's clever and fragile."</p>
+            <p class="reveal text-sub text-center mt-4 font-medium">— Harikrishnan T Nair</p>
+            <div id="faq-list" class="mt-16 max-w-2xl mx-auto divide-y divide-line"></div>
         </div>
     </section>
 
@@ -176,6 +249,44 @@ document.getElementById('projects').innerHTML = PROJECTS.map((p,i)=>`
             ${p.url?`<span class="material-symbols-outlined text-3xl text-sub group-hover:text-blue group-hover:translate-x-1 transition-all">arrow_forward</span>`:`<span class="text-sub text-sm">research / private</span>`}
         </div>
     </a>`).join('');
+
+const SKILLS=[
+    ['Backend','Java, Spring Boot, Hibernate, REST API, Servlets'],
+    ['Frontend','React, Vite, JavaScript, TypeScript, Tailwind'],
+    ['Database','PostgreSQL, MySQL, DB Design, Query Optimization'],
+    ['Languages','Java, Python, C, SQL'],
+    ['Tools & Cloud','Git, GitHub, AWS, Linux'],
+    ['ERP & Domain','Inventory, Sales, Purchase, Accounting, Payroll'],
+];
+document.getElementById('skills-grid').innerHTML=SKILLS.map(([t,v])=>`
+    <div class="reveal bg-soft rounded-3xl p-6"><h3 class="font-semibold text-lg mb-2">${t}</h3><p class="text-sub">${v}</p></div>`).join('');
+
+const STACK=['Java','Spring Boot','Hibernate','REST API','Servlets','React','Vite','JavaScript','TypeScript','Tailwind','PostgreSQL','MySQL','Git','GitHub','AWS','Linux','Python','C'];
+document.getElementById('stack-grid').innerHTML=STACK.map(s=>`<span class="px-4 py-2 rounded-full bg-soft text-ink font-medium text-sm border border-line">${s}</span>`).join('');
+
+const TIMELINE=[
+    {y:'2025 — now',t:'Software Engineer · GEEBU InfoTech',d:'Build & maintain enterprise ERP modules — inventory, sales, purchase, accounting, payroll & user access — with Spring Boot, React and PostgreSQL on a live multi-branch SaaS.'},
+    {y:'2025',t:'B.Tech CSE — UKF College',d:'Graduated with CGPA 8.01 from APJ Abdul Kalam Technological University.'},
+    {y:'2024 — 2025',t:'Research — Blood Cancer Detection',d:'Deep-learning + image-processing pipeline for early detection from medical images.'},
+    {y:'2024',t:'Java Software Developer program',d:'120h with ICT Academy & Infosys Foundation. Built JobXplore & CareCloud.'},
+    {y:'Incubation',t:'Java Full Stack Developer · Qspyder',d:'Hands-on full-stack training — Spring Boot, Hibernate, MySQL + front-end.'},
+];
+document.getElementById('timeline-list').innerHTML=TIMELINE.map(e=>`
+    <div class="reveal relative">
+        <span class="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-blue border-4 border-white"></span>
+        <p class="text-blue text-sm font-semibold">${e.y}</p>
+        <h3 class="text-xl font-semibold mt-0.5">${e.t}</h3>
+        <p class="text-sub mt-1">${e.d}</p>
+    </div>`).join('');
+
+const FAQ=[
+    ['Are you available?','Yes — open to full-time roles and serious engineering work. Based in Kollam, India; comfortable remote.'],
+    ['What do you build best?','Backend & systems — Java / Spring Boot APIs, relational data models, and the ERP business logic that ties them together.'],
+    ['How do you work?','Clean architecture first. I design the data model, keep module boundaries clear, and write code the next engineer can read.'],
+    ['Your stack of choice?','Java & Spring Boot on the backend, React on the front, PostgreSQL for data — with Git, AWS and Linux around it.'],
+];
+document.getElementById('faq-list').innerHTML=FAQ.map(([q,a])=>`
+    <div class="reveal py-5"><p class="font-semibold text-lg">${q}</p><p class="text-sub mt-1">${a}</p></div>`).join('');
 
 // pinned cards (cross-fade through STEPS as you scroll the pin-wrap)
 document.getElementById('pinCards').innerHTML = STEPS.map((s,i)=>`

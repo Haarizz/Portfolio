@@ -57,9 +57,11 @@ tailwind.config = { theme: { extend: {
 <nav class="fixed top-0 inset-x-0 z-50 mix-blend-difference">
     <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         <a href="#top" class="serif text-xl font-semibold">Harikrishnan✦</a>
-        <div class="hidden md:flex gap-8 text-sm" id="navLinks">
+        <div class="hidden md:flex gap-7 text-sm" id="navLinks">
             <a href="#work" class="hover:text-acc transition-colors">Work</a>
+            <a href="#case" class="hover:text-acc transition-colors">Case</a>
             <a href="#about" class="hover:text-acc transition-colors">About</a>
+            <a href="#timeline" class="hover:text-acc transition-colors">Record</a>
             <a href="#contact" class="hover:text-acc transition-colors">Contact</a>
         </div>
         <a href="Harikrishnan-T-Nair-Resume.pdf" download class="text-sm hover:text-acc transition-colors">Résumé →</a>
@@ -104,8 +106,33 @@ tailwind.config = { theme: { extend: {
         <div id="projects" class="border-t border-line"></div>
     </section>
 
+    <!-- CASE STUDY -->
+    <section id="case" class="max-w-6xl mx-auto px-6 py-28">
+        <p class="reveal text-dim text-sm uppercase tracking-[0.3em] mb-6">✦ Case study</p>
+        <h2 class="reveal display text-5xl md:text-7xl mb-8">BillBull<br/>ERP<span class="acc">.</span></h2>
+        <p class="reveal text-dim text-xl max-w-2xl leading-relaxed mb-12">A production multi-branch ERP unifying inventory, financial accounting, sales, purchase and payroll on one consistent data model — the system real teams run their operations on.</p>
+        <div class="grid md:grid-cols-4 gap-5 mb-10">
+            <div class="reveal border border-line rounded-2xl p-6"><div class="display text-5xl acc">6+</div><div class="text-dim text-sm mt-1">ERP modules</div></div>
+            <div class="reveal border border-line rounded-2xl p-6"><div class="display text-5xl acc">387+</div><div class="text-dim text-sm mt-1">Commits</div></div>
+            <div class="reveal border border-line rounded-2xl p-6"><div class="display text-5xl">Multi</div><div class="text-dim text-sm mt-1">Branch</div></div>
+            <div class="reveal border border-line rounded-2xl p-6"><div class="display text-5xl">Live</div><div class="text-dim text-sm mt-1">In prod</div></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="reveal border border-line rounded-2xl p-6"><p class="serif text-2xl mb-2">Backend</p><p class="text-dim">Spring Boot REST APIs · layered service design · role-based access · relational data model.</p></div>
+            <div class="reveal border border-line rounded-2xl p-6"><p class="serif text-2xl mb-2">Frontend</p><p class="text-dim">React dashboards in JavaScript &amp; TypeScript — module-driven, branch-aware.</p></div>
+            <div class="reveal border border-line rounded-2xl p-6"><p class="serif text-2xl mb-2">Financial flow</p><p class="text-dim">Sales &amp; purchase ledgers · automated accounting · payroll · multi-branch consolidation.</p></div>
+        </div>
+        <a href="https://github.com/Haarizz/Billbull_Retail" target="_blank" rel="noopener" class="reveal inline-block mt-8 text-lg hover:text-acc transition-colors">View the repository →</a>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="max-w-6xl mx-auto px-6 py-28 border-t border-line">
+        <h2 class="reveal display text-5xl md:text-7xl mb-14">What I do<span class="acc">.</span></h2>
+        <div id="services-list" class="border-t border-line"></div>
+    </section>
+
     <!-- ABOUT -->
-    <section id="about" class="max-w-6xl mx-auto px-6 py-28">
+    <section id="about" class="max-w-6xl mx-auto px-6 py-28 border-t border-line">
         <div class="reveal serif text-3xl md:text-5xl font-medium leading-[1.25] max-w-4xl">
             I'm <span class="acc">Harikrishnan</span> — a software engineer who cares less about clever code and more about systems that <span class="italic">don't break</span> when the business grows.
         </div>
@@ -128,11 +155,33 @@ tailwind.config = { theme: { extend: {
                 <p class="font-medium mt-3">Java Full Stack — Qspyder <span class="text-dim text-sm font-normal">· incubation</span></p>
             </div>
             <div class="reveal border border-line rounded-2xl p-6">
-                <p class="text-dim text-xs uppercase tracking-widest mb-3">Education &amp; certs</p>
+                <p class="text-dim text-xs uppercase tracking-widest mb-3">Education &amp; certifications</p>
                 <p class="font-medium">B.Tech CSE — UKF College <span class="text-dim text-sm font-normal">· CGPA 8.01</span></p>
-                <p class="text-dim text-sm">Java (ICT/Infosys 120h) · AWS · Python (NIT Calicut)</p>
+                <p class="text-dim text-sm mb-3">APJ Abdul Kalam Technological University</p>
+                <p class="text-sm">Java Software Developer — ICT/Infosys (120h)</p>
+                <p class="text-sm">AWS Cloud — Computron · Python — NIT Calicut</p>
             </div>
         </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline" class="max-w-6xl mx-auto px-6 py-28 border-t border-line">
+        <h2 class="reveal display text-5xl md:text-7xl mb-14">The record<span class="acc">.</span></h2>
+        <div id="timeline-list" class="border-t border-line"></div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section id="stack" class="max-w-6xl mx-auto px-6 py-28 border-t border-line">
+        <h2 class="reveal display text-5xl md:text-7xl mb-12">The toolkit<span class="acc">.</span></h2>
+        <div id="stack-grid" class="reveal flex flex-wrap gap-3"></div>
+    </section>
+
+    <!-- STATEMENT + FAQ -->
+    <section id="faq" class="max-w-6xl mx-auto px-6 py-28 border-t border-line grid lg:grid-cols-2 gap-12">
+        <div class="reveal serif text-3xl md:text-4xl leading-[1.3]">
+            "I'd rather ship a system that's boring and bulletproof than one that's clever and fragile<span class="acc">.</span> The best compliment my code can get is that the next engineer understood it instantly."
+        </div>
+        <div id="faq-list" class="space-y-0 border-t border-line"></div>
     </section>
 
     <!-- CONTACT -->
@@ -175,6 +224,44 @@ document.getElementById('projects').innerHTML=PROJECTS.map((p,i)=>`
       </div>
     </div>
   </a>`).join('');
+
+const SERVICES=[
+  ['Architecture','Designing scalable, secure, maintainable systems from the data model up.'],
+  ['Backend Development','Robust Spring Boot services and clean REST APIs backed by PostgreSQL.'],
+  ['Database Design','Consistent relational models, query optimization and data integrity across modules.'],
+  ['System Optimization','Improving performance, reliability and scalability as the business grows.'],
+];
+document.getElementById('services-list').innerHTML=SERVICES.map((s,i)=>`
+  <div class="reveal border-b border-line py-8 flex flex-col md:flex-row md:items-center gap-4 group">
+    <span class="serif text-dim text-xl num w-12">0${i+1}</span>
+    <h3 class="display text-3xl md:text-5xl flex-1 group-hover:text-acc transition-colors">${s[0]}</h3>
+    <p class="text-dim md:max-w-sm">${s[1]}</p>
+  </div>`).join('');
+
+const TIMELINE=[
+  ['2025 — now','Software Engineer · GEEBU InfoTech','ERP modules — inventory, sales, purchase, accounting, payroll — with Spring Boot, React & PostgreSQL on a live multi-branch SaaS.'],
+  ['2025','B.Tech CSE · UKF College','Graduated CGPA 8.01 — APJ Abdul Kalam Technological University.'],
+  ['2024 — 2025','Research · Blood Cancer Detection','Deep-learning + image-processing pipeline for early detection from medical images.'],
+  ['2024','Java Software Developer · ICT/Infosys','120-hour program — servlets, Spring Boot, Hibernate, MySQL. Built JobXplore & CareCloud.'],
+  ['Incubation','Java Full Stack Developer · Qspyder','Hands-on full-stack training — Spring Boot, Hibernate, MySQL + front-end.'],
+];
+document.getElementById('timeline-list').innerHTML=TIMELINE.map(e=>`
+  <div class="reveal border-b border-line py-8 grid md:grid-cols-[160px_1fr] gap-x-6 gap-y-2">
+    <span class="text-dim text-sm uppercase tracking-widest pt-2">${e[0]}</span>
+    <div><h3 class="serif text-2xl md:text-3xl">${e[1]}</h3><p class="text-dim mt-1 max-w-2xl">${e[2]}</p></div>
+  </div>`).join('');
+
+const STACK=['Java','Spring Boot','Hibernate','REST API','Servlets','React','Vite','JavaScript','TypeScript','Tailwind','PostgreSQL','MySQL','Git','GitHub','AWS','Linux','Python','C'];
+document.getElementById('stack-grid').innerHTML=STACK.map(s=>`<span class="px-5 py-2.5 rounded-full border border-line text-lg hover:border-acc hover:text-acc transition-colors">${s}</span>`).join('');
+
+const FAQ=[
+  ['Are you available?','Yes — open to full-time roles and serious engineering work. Kollam, India; comfortable remote.'],
+  ['What do you build best?','Backend & systems — Java / Spring Boot APIs, relational data models, ERP business logic.'],
+  ['How do you work?','Clean architecture first. Design the data model, keep boundaries clear, write readable code.'],
+  ['Stack of choice?','Java & Spring Boot, React, PostgreSQL — with Git, AWS and Linux around it.'],
+];
+document.getElementById('faq-list').innerHTML=FAQ.map(e=>`
+  <div class="reveal border-b border-line py-5"><p class="serif text-xl mb-1">${e[0]}</p><p class="text-dim">${e[1]}</p></div>`).join('');
 
 // word-in hero
 (function(){const ws=document.querySelectorAll('.word');ws.forEach((w,i)=>setTimeout(()=>w.classList.add('in'),200+i*120));})();

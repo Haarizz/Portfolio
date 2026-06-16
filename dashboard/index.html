@@ -53,7 +53,10 @@ tailwind.config = { theme: { extend: {
     <nav class="space-y-1 text-sm text-dim flex-1" id="nav">
         <a href="#overview" class="navItem active flex items-center gap-3 px-3 py-2"><span class="material-symbols-outlined text-[20px]">dashboard</span> Overview</a>
         <a href="#work" class="navItem flex items-center gap-3 px-3 py-2"><span class="material-symbols-outlined text-[20px]">deployed_code</span> Projects</a>
+        <a href="#case" class="navItem flex items-center gap-3 px-3 py-2"><span class="material-symbols-outlined text-[20px]">analytics</span> Case Study</a>
+        <a href="#services" class="navItem flex items-center gap-3 px-3 py-2"><span class="material-symbols-outlined text-[20px]">handyman</span> Services</a>
         <a href="#skills" class="navItem flex items-center gap-3 px-3 py-2"><span class="material-symbols-outlined text-[20px]">tune</span> Skills</a>
+        <a href="#experience" class="navItem flex items-center gap-3 px-3 py-2"><span class="material-symbols-outlined text-[20px]">timeline</span> Experience</a>
         <a href="#about" class="navItem flex items-center gap-3 px-3 py-2"><span class="material-symbols-outlined text-[20px]">person</span> About</a>
         <a href="#contact" class="navItem flex items-center gap-3 px-3 py-2"><span class="material-symbols-outlined text-[20px]">mail</span> Contact</a>
     </nav>
@@ -104,6 +107,37 @@ tailwind.config = { theme: { extend: {
             <div id="projects" class="grid md:grid-cols-2 gap-4"></div>
         </section>
 
+        <!-- CASE STUDY -->
+        <section id="case">
+            <div class="flex items-center justify-between mb-5"><h2 class="text-2xl font-bold">Case Study · BillBull ERP</h2><span class="text-xs px-3 py-1 rounded-full" style="background:#22c55e1a;color:#22c55e">live</span></div>
+            <div class="card gradbg rounded-2xl p-6 mb-4">
+                <p class="text-dim leading-relaxed max-w-3xl">A production multi-branch ERP unifying inventory, financial accounting, sales, purchase and payroll on one consistent data model — the system real teams run their operations on.</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-5">
+                    <div class="panel rounded-xl p-4"><p class="text-2xl font-bold grad">6+</p><p class="text-dim text-xs">ERP modules</p></div>
+                    <div class="panel rounded-xl p-4"><p class="text-2xl font-bold grad">387+</p><p class="text-dim text-xs">Commits</p></div>
+                    <div class="panel rounded-xl p-4"><p class="text-2xl font-bold grad">Multi</p><p class="text-dim text-xs">Branch</p></div>
+                    <div class="panel rounded-xl p-4"><p class="text-2xl font-bold grad">Live</p><p class="text-dim text-xs">In prod</p></div>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="card rounded-2xl p-5"><p class="font-semibold mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-pri text-[20px]">dns</span> Backend</p><p class="text-dim text-sm">Spring Boot REST APIs, layered service design, role-based access, relational data model.</p></div>
+                <div class="card rounded-2xl p-5"><p class="font-semibold mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-pri2 text-[20px]">monitor</span> Frontend</p><p class="text-dim text-sm">React dashboards in JS &amp; TypeScript — module-driven and branch-aware.</p></div>
+                <div class="card rounded-2xl p-5"><p class="font-semibold mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-g text-[20px]">account_balance</span> Financial flow</p><p class="text-dim text-sm">Sales &amp; purchase ledgers, automated accounting, payroll, multi-branch consolidation.</p></div>
+            </div>
+            <a href="https://github.com/Haarizz/Billbull_Retail" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-pri font-medium text-sm mt-4 hover:gap-2 transition-all">View repository <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services">
+            <h2 class="text-2xl font-bold mb-5">Services</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="card rounded-2xl p-5"><span class="material-symbols-outlined text-pri">architecture</span><h3 class="font-semibold mt-2 mb-1">Architecture</h3><p class="text-dim text-sm">Scalable, secure systems from the data model up.</p></div>
+                <div class="card rounded-2xl p-5"><span class="material-symbols-outlined text-pri">code</span><h3 class="font-semibold mt-2 mb-1">Backend Dev</h3><p class="text-dim text-sm">Spring Boot services &amp; clean REST APIs on PostgreSQL.</p></div>
+                <div class="card rounded-2xl p-5"><span class="material-symbols-outlined text-pri">database</span><h3 class="font-semibold mt-2 mb-1">Database Design</h3><p class="text-dim text-sm">Relational models, query optimization, data integrity.</p></div>
+                <div class="card rounded-2xl p-5"><span class="material-symbols-outlined text-pri">speed</span><h3 class="font-semibold mt-2 mb-1">Optimization</h3><p class="text-dim text-sm">Performance, reliability and scale as you grow.</p></div>
+            </div>
+        </section>
+
         <!-- SKILLS -->
         <section id="skills">
             <h2 class="text-2xl font-bold mb-5">Skills</h2>
@@ -112,6 +146,18 @@ tailwind.config = { theme: { extend: {
                 <p class="text-dim text-sm mb-3">Full stack</p>
                 <div id="chips" class="flex flex-wrap gap-2"></div>
             </div>
+        </section>
+
+        <!-- EXPERIENCE TIMELINE -->
+        <section id="experience">
+            <h2 class="text-2xl font-bold mb-5">Experience &amp; education</h2>
+            <div id="timeline" class="space-y-3"></div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <h2 class="text-2xl font-bold mb-5">FAQ</h2>
+            <div id="faq-list" class="grid md:grid-cols-2 gap-4"></div>
         </section>
 
         <!-- ABOUT -->
@@ -182,6 +228,28 @@ document.getElementById('skillbars').innerHTML=BARS.map(([n,v])=>`
   <div class="reveal"><div class="flex justify-between text-sm mb-1.5"><span>${n}</span><span class="text-dim">${v}%</span></div>
   <div class="bar h-2 rounded-full bg-panel"><i data-v="${v}"></i></div></div>`).join('');
 document.getElementById('chips').innerHTML=CHIPS.map(c=>`<span class="text-xs px-3 py-1.5 rounded-lg bg-panel text-dim hover:text-txt transition">${c}</span>`).join('');
+
+const TIMELINE=[
+  {y:'2025 — now',t:'Software Engineer · GEEBU InfoTech',d:'ERP modules — inventory, sales, purchase, accounting, payroll — with Spring Boot, React & PostgreSQL on a live multi-branch SaaS.',c:'#7c5cff'},
+  {y:'2025',t:'B.Tech CSE · UKF College',d:'Graduated CGPA 8.01 — APJ Abdul Kalam Technological University.',c:'#22d3ee'},
+  {y:'2024 — 2025',t:'Research · Blood Cancer Detection',d:'Deep-learning + image-processing pipeline for early detection from medical images.',c:'#f5a623'},
+  {y:'2024',t:'Java Software Developer · ICT/Infosys',d:'120-hour program — servlets, Spring Boot, Hibernate, MySQL. Built JobXplore & CareCloud.',c:'#22c55e'},
+  {y:'Incubation',t:'Java Full Stack Developer · Qspyder',d:'Hands-on full-stack training — Spring Boot, Hibernate, MySQL + front-end.',c:'#7c5cff'},
+];
+document.getElementById('timeline').innerHTML=TIMELINE.map(e=>`
+  <div class="card rounded-2xl p-5 reveal flex gap-4">
+    <div class="shrink-0 w-1 rounded-full" style="background:${e.c}"></div>
+    <div class="flex-1"><div class="flex justify-between flex-wrap gap-2"><h3 class="font-semibold">${e.t}</h3><span class="mono text-xs text-dim">${e.y}</span></div><p class="text-dim text-sm mt-1">${e.d}</p></div>
+  </div>`).join('');
+
+const FAQ=[
+  ['Are you available?','Yes — open to full-time roles and serious engineering work. Kollam, India; comfortable remote.'],
+  ['What do you build best?','Backend & systems — Java / Spring Boot APIs, relational data models, and ERP business logic.'],
+  ['How do you work?','Clean architecture first. Design the data model, keep boundaries clear, write readable code.'],
+  ['Stack of choice?','Java & Spring Boot, React, PostgreSQL — with Git, AWS and Linux around it.'],
+];
+document.getElementById('faq-list').innerHTML=FAQ.map(([q,a])=>`
+  <div class="card rounded-2xl p-5 reveal"><p class="font-semibold mb-1">${q}</p><p class="text-dim text-sm">${a}</p></div>`).join('');
 
 (function(){const els=document.querySelectorAll('.reveal');if(!('IntersectionObserver'in window)){els.forEach(e=>e.classList.add('in'));return;}
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('.bar i').forEach(b=>b.style.width=b.dataset.v+'%');io.unobserve(e.target);}}),{threshold:.2});
